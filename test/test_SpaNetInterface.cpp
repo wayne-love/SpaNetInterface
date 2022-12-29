@@ -70,10 +70,25 @@ Serial.print(Resp_Bad);
 TEST_ASSERT(!sni.readStatus());
 }
 
-void test_MainsCurrent_getValue(void){
+void test_updateS2Idiv10(void){
     TEST_ASSERT_EQUAL_FLOAT(9.3,sni.MainsCurrent.getValue());
-}        
+}
 
+void test_updateS2I(void){
+    TEST_ASSERT_EQUAL_INT16(234, sni.MainsVoltage.getValue());
+}
+
+void test_updateS2B_true(void){
+    TEST_ASSERT(sni.WaterPresent.getValue());
+}
+
+void test_updateS2B_false(void){
+    TEST_ASSERT(!sni.HV_2.getValue());
+}
+
+void test_updateS2S(void) {
+    TEST_ASSERT(sni.Status.getValue().equals("In use"));
+}
 
 void setup()
 {
@@ -87,7 +102,11 @@ void setup()
     RUN_TEST(test_readString_RespOK);
     RUN_TEST(test_readString_RespBad);
     RUN_TEST(test_readString_RespEmpty);
-    RUN_TEST(test_MainsCurrent_getValue);
+    RUN_TEST(test_updateS2Idiv10);
+    RUN_TEST(test_updateS2I);
+    RUN_TEST(test_updateS2B_false);
+    RUN_TEST(test_updateS2B_true);
+    RUN_TEST(test_updateS2S);
 
     UNITY_END(); // stop unit testing
 }

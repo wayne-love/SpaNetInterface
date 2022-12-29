@@ -29,6 +29,10 @@ bool SpaNetInterface::_updateS2B(String s){
     return s.equals("1");
 }
 
+String SpaNetInterface::_updateS2S(String s){
+    return s;
+}
+
 bool SpaNetInterface::readStatus() {
 
     int field = 0;
@@ -80,7 +84,31 @@ void SpaNetInterface::initialise() {
     Relay7._set_uFunc(_updateS2I);
     Relay8._set_uFunc(_updateS2I);
     Relay9._set_uFunc(_updateS2I);
-
+    CLMT._set_uFunc(_updateS2I);
+    PHSE._set_uFunc(_updateS2I);
+    LLM1._set_uFunc(_updateS2I);
+    LLM2._set_uFunc(_updateS2I);
+    LLM3._set_uFunc(_updateS2I);
+    SVER._set_uFunc(_updateS2S);
+    Model._set_uFunc(_updateS2S);
+    SerialNo1._set_uFunc(_updateS2S);
+    SerialNo2._set_uFunc(_updateS2S);
+    D1._set_uFunc(_updateS2B);
+    D2._set_uFunc(_updateS2B);
+    D3._set_uFunc(_updateS2B);
+    D4._set_uFunc(_updateS2B);
+    D5._set_uFunc(_updateS2B);
+    D6._set_uFunc(_updateS2B);
+    Pump._set_uFunc(_updateS2S);
+    LS._set_uFunc(_updateS2I);
+    HV._set_uFunc(_updateS2B);
+    SniMR._set_uFunc(_updateS2I);
+    Status._set_uFunc(_updateS2S);
+    PrimeCount._set_uFunc(_updateS2I);
+    EC._set_uFunc(_updateS2Idiv10);
+    HAMB._set_uFunc(_updateS2I);
+    HCON._set_uFunc(_updateS2I);
+    HV_2._set_uFunc(_updateS2B);
 }
 
 void SpaNetInterface::updateMeasures() {
@@ -105,6 +133,29 @@ void SpaNetInterface::updateMeasures() {
     Relay7.updateValue(statusResponseRaw[28]);
     Relay8.updateValue(statusResponseRaw[29]);
     Relay9.updateValue(statusResponseRaw[30]);
-    
-}
-
+    CLMT.updateValue(statusResponseRaw[34]);
+    PHSE.updateValue(statusResponseRaw[35]);
+    LLM1.updateValue(statusResponseRaw[36]);
+    LLM2.updateValue(statusResponseRaw[37]);
+    LLM3.updateValue(statusResponseRaw[38]);
+    SVER.updateValue(statusResponseRaw[39]);
+    Model.updateValue(statusResponseRaw[40]);
+    SerialNo1.updateValue(statusResponseRaw[41]);
+    SerialNo2.updateValue(statusResponseRaw[42]);
+    D1.updateValue(statusResponseRaw[43]);
+    D2.updateValue(statusResponseRaw[44]);
+    D3.updateValue(statusResponseRaw[45]);
+    D4.updateValue(statusResponseRaw[46]);
+    D5.updateValue(statusResponseRaw[47]);
+    D6.updateValue(statusResponseRaw[48]);
+    Pump.updateValue(statusResponseRaw[49]);
+    LS.updateValue(statusResponseRaw[50]);
+    HV.updateValue(statusResponseRaw[51]);
+    SniMR.updateValue(statusResponseRaw[52]);
+    Status.updateValue(statusResponseRaw[53]);
+    PrimeCount.updateValue(statusResponseRaw[54]);
+    EC.updateValue(statusResponseRaw[55]);
+    HAMB.updateValue(statusResponseRaw[56]);
+    HCON.updateValue(statusResponseRaw[57]);
+    HV_2.updateValue(statusResponseRaw[58]);
+};

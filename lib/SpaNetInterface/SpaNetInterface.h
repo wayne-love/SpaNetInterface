@@ -17,6 +17,7 @@ class SpaNetInterface {
         static float _updateS2Idiv10(String s);
         static int _updateS2I(String s);
         static bool _updateS2B(String s);
+        static String _updateS2S(String s);
 
     public:
         /// @brief Init SNI to read from stream p. This stream needs to be started and configured baud 38400/8N1.
@@ -67,7 +68,7 @@ class SpaNetInterface {
         /// @brief FiltPumpRunTimeTotal (min)
         Attribute<int> FiltPumpRunTimeTotal;
         /// @brief FiltPumpReqMins (sec)
-        //TODO - the value here does not match the value in the snampshoe (1442 != 2:00)
+        //TODO - the value here does not match the value in the snampshot data (1442 != 2:00)
         Attribute<int> FiltPumpReqMins; 
         /// @brief LoadTimeOut (sec)
         Attribute<int> LoadTimeOut;
@@ -91,8 +92,58 @@ class SpaNetInterface {
         Attribute<int> Relay8;
         /// @brief Relay9 (?)
         Attribute<int> Relay9;
-        //TODO - Reg 31 unknown data (maybe FiltPumpReqMins)
-
+        //TODO - Reg 31 unknown data
+        /// @brief Current limit (A)
+        Attribute<int> CLMT;
+        /// @brief Power phases in use
+        Attribute<int> PHSE;
+        /// @brief LLM1
+        Attribute<int> LLM1;
+        /// @brief LLM2
+        Attribute<int> LLM2;
+        /// @brief LLM3
+        Attribute<int> LLM3;
+        /// @brief Software version
+        Attribute<String> SVER;
+        /// @brief Model
+        Attribute<String> Model;
+        /// @brief SerialNo1
+        Attribute<String> SerialNo1;
+        /// @brief SerialNo2
+        Attribute<String> SerialNo2;
+        /// @brief Dipswitch 1
+        Attribute<bool> D1;
+        /// @brief Dipswitch 2
+        Attribute<bool> D2;
+        /// @brief Dipswitch 3
+        Attribute<bool> D3;
+        /// @brief Dipswitch 4
+        Attribute<bool> D4;
+        /// @brief Dipswitch 5
+        Attribute<bool> D5;
+        /// @brief Dipswitch 6
+        Attribute<bool> D6;
+        /// @brief Pump
+        Attribute<String> Pump;
+        /// @brief Load shed services
+        Attribute<int> LS;
+        /// @brief HV
+        Attribute<bool> HV;
+        /// @brief MR / name clash with MR constant from specreg.h
+        Attribute<int> SniMR;
+        /// @brief Status (Filtering, etc)
+        Attribute<String> Status;
+        /// @brief PrimeCount
+        Attribute<int> PrimeCount;
+        /// @brief EC
+        Attribute<float> EC;
+        /// @brief HAMB
+        Attribute<int> HAMB;
+        /// @brief HCON
+        Attribute<int> HCON;
+        /// @brief HV_2
+        //TODO - This could also be reg 59....
+        Attribute<bool> HV_2;
 };
 
 
