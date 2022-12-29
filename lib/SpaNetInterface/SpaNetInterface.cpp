@@ -25,6 +25,10 @@ int SpaNetInterface::_updateS2I(String s) {
     return s.toInt();
 }
 
+bool SpaNetInterface::_updateS2B(String s){
+    return s.equals("1");
+}
+
 bool SpaNetInterface::readStatus() {
 
     int field = 0;
@@ -58,11 +62,49 @@ void SpaNetInterface::initialise() {
     MainsCurrent._set_uFunc(_updateS2Idiv10);
     MainsVoltage._set_uFunc(_updateS2I);
     CaseTemperature._set_uFunc(_updateS2I);
+    PortCurrent._set_uFunc(_updateS2I);
+    HeaterTemperature._set_uFunc(_updateS2Idiv10);
+    PoolTemperature._set_uFunc(_updateS2Idiv10);
+    WaterPresent._set_uFunc(_updateS2B);
+    AwakeMinutesRemaining._set_uFunc(_updateS2I);
+    FiltPumpRunTimeTotal._set_uFunc(_updateS2I);
+    FiltPumpReqMins._set_uFunc(_updateS2I);
+    LoadTimeOut._set_uFunc(_updateS2I);
+    HourMeter._set_uFunc(_updateS2Idiv10);
+    Relay1._set_uFunc(_updateS2I);
+    Relay2._set_uFunc(_updateS2I);
+    Relay3._set_uFunc(_updateS2I);
+    Relay4._set_uFunc(_updateS2I);
+    Relay5._set_uFunc(_updateS2I);
+    Relay6._set_uFunc(_updateS2I);
+    Relay7._set_uFunc(_updateS2I);
+    Relay8._set_uFunc(_updateS2I);
+    Relay9._set_uFunc(_updateS2I);
+
 }
 
 void SpaNetInterface::updateMeasures() {
     MainsCurrent.updateValue(statusResponseRaw[2]);
     MainsVoltage.updateValue(statusResponseRaw[3]);
     CaseTemperature.updateValue(statusResponseRaw[4]);
+    PortCurrent.updateValue(statusResponseRaw[5]);
+    HeaterTemperature.updateValue(statusResponseRaw[13]);
+    PoolTemperature.updateValue(statusResponseRaw[14]);
+    WaterPresent.updateValue(statusResponseRaw[15]);
+    AwakeMinutesRemaining.updateValue(statusResponseRaw[17]);
+    FiltPumpRunTimeTotal.updateValue(statusResponseRaw[18]);
+    FiltPumpReqMins.updateValue(statusResponseRaw[19]);
+    LoadTimeOut.updateValue(statusResponseRaw[20]);
+    HourMeter.updateValue(statusResponseRaw[21]);
+    Relay1.updateValue(statusResponseRaw[22]);
+    Relay2.updateValue(statusResponseRaw[23]);
+    Relay3.updateValue(statusResponseRaw[24]);
+    Relay4.updateValue(statusResponseRaw[25]);
+    Relay5.updateValue(statusResponseRaw[26]);
+    Relay6.updateValue(statusResponseRaw[27]);
+    Relay7.updateValue(statusResponseRaw[28]);
+    Relay8.updateValue(statusResponseRaw[29]);
+    Relay9.updateValue(statusResponseRaw[30]);
+    
 }
 
