@@ -151,7 +151,7 @@ void SpaNetInterface::initialise() {
     RB_TP_Ozone._set_uFunc(_updateS2I);
     RB_TP_Sleep._set_uFunc(_updateS2I);
     WTMP._set_uFunc(_updateS2Idiv10);
-
+    // R6
     VARIValue._set_uFunc(_updateS2I);
     LBRTValue._set_uFunc(_updateS2I);
     CurrClr._set_uFunc(_updateS2I);
@@ -179,7 +179,36 @@ void SpaNetInterface::initialise() {
     ELMT._set_uFunc(_updateS2I);
     TYPE._set_uFunc(_updateS2I);
     GAS._set_uFunc(_updateS2I);
-
+    //R7
+    WCLNTime._set_uFunc(_updateS2I);
+    TemperatureUnits._set_uFunc(_updateS2I);
+    OzoneOff._set_uFunc(_updateS2B);
+    Ozone24._set_uFunc(_updateS2I);
+    Circ24._set_uFunc(_updateS2B);
+    CJET._set_uFunc(_updateS2B);
+    VELE._set_uFunc(_updateS2I);
+    StartDD._set_uFunc(_updateS2I);
+    StartMM._set_uFunc(_updateS2I);
+    StartYY._set_uFunc(_updateS2I);
+    V_Max._set_uFunc(_updateS2I);
+    V_Min._set_uFunc(_updateS2I);
+    V_Max_24._set_uFunc(_updateS2I);
+    V_Min_24._set_uFunc(_updateS2I);
+    CurrentZero._set_uFunc(_updateS2I);
+    CurrentAdjust._set_uFunc(_updateS2Idiv10);
+    VoltageAdjust._set_uFunc(_updateS2Idiv10);
+    Ser1._set_uFunc(_updateS2I);
+    Ser2._set_uFunc(_updateS2I);
+    Ser3._set_uFunc(_updateS2I);
+    VMAX._set_uFunc(_updateS2I);
+    AHYS._set_uFunc(_updateS2Idiv10);
+    HUSE._set_uFunc(_updateS2I);
+    HELE._set_uFunc(_updateS2B);
+    HPMP._set_uFunc(_updateS2I);
+    PMIN._set_uFunc(_updateS2I);
+    PFLT._set_uFunc(_updateS2I);
+    PHTR._set_uFunc(_updateS2I);
+    PMAX._set_uFunc(_updateS2I);
 
 
 }
@@ -269,7 +298,7 @@ void SpaNetInterface::updateMeasures() {
     RB_TP_Ozone.updateValue(statusResponseRaw[105]);
     RB_TP_Sleep.updateValue(statusResponseRaw[106]);
     WTMP.updateValue(statusResponseRaw[107]);
-
+    //R6
     VARIValue.updateValue(statusResponseRaw[121]);
     LBRTValue.updateValue(statusResponseRaw[122]);
     CurrClr.updateValue(statusResponseRaw[123]);
@@ -297,6 +326,37 @@ void SpaNetInterface::updateMeasures() {
     ELMT.updateValue(statusResponseRaw[145]);
     TYPE.updateValue(statusResponseRaw[146]);
     GAS.updateValue(statusResponseRaw[147]);
-
+    //R7
+    WCLNTime.updateValue(statusResponseRaw[151]);
+    // The following 2 may be reversed
+    TemperatureUnits.updateValue(statusResponseRaw[153]);
+    OzoneOff.updateValue(statusResponseRaw[152]);
+    Ozone24.updateValue(statusResponseRaw[154]);
+    // The following 2 may be reversed
+    Circ24.updateValue(statusResponseRaw[156]);
+    CJET.updateValue(statusResponseRaw[155]);
+    VELE.updateValue(statusResponseRaw[167]);
+    StartDD.updateValue(statusResponseRaw[157]);
+    StartMM.updateValue(statusResponseRaw[158]);
+    StartYY.updateValue(statusResponseRaw[159]);
+    V_Max.updateValue(statusResponseRaw[160]);
+    V_Min.updateValue(statusResponseRaw[161]);
+    V_Max_24.updateValue(statusResponseRaw[162]);
+    V_Min_24.updateValue(statusResponseRaw[163]);
+    CurrentZero.updateValue(statusResponseRaw[164]);
+    CurrentAdjust.updateValue(statusResponseRaw[165]);
+    VoltageAdjust.updateValue(statusResponseRaw[166]);
+    Ser1.updateValue(statusResponseRaw[168]);
+    Ser2.updateValue(statusResponseRaw[169]);
+    Ser3.updateValue(statusResponseRaw[170]);
+    VMAX.updateValue(statusResponseRaw[171]);
+    AHYS.updateValue(statusResponseRaw[172]);
+    HUSE.updateValue(statusResponseRaw[173]);
+    HELE.updateValue(statusResponseRaw[174]);
+    HPMP.updateValue(statusResponseRaw[175]);
+    PMIN.updateValue(statusResponseRaw[176]);
+    PFLT.updateValue(statusResponseRaw[177]);
+    PHTR.updateValue(statusResponseRaw[178]);
+    PMAX.updateValue(statusResponseRaw[179]);
 
 };

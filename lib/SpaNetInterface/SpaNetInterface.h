@@ -232,6 +232,49 @@ class SpaNetInterface {
         // 3 = SV3
         Attribute<int> TYPE;
         Attribute<int> GAS;
+        // R7
+        /// @brief Daily clean cycle start time (1 hr = 256, 2pm = 3584)
+        Attribute<int> WCLNTime;
+        // 0 = 'C
+        Attribute<int> TemperatureUnits;
+        Attribute<bool> OzoneOff;
+        Attribute<int> Ozone24;
+        Attribute<bool> Circ24;
+        Attribute<bool> CJET;
+        // This may be mapped wrong to the wrong register
+        // 3 = Vari
+        Attribute<int> VELE;
+        /// @brief Date of comissioning
+        Attribute<int> StartDD;
+        /// @brief Month of comissioning
+        Attribute<int> StartMM;
+        /// @brief Year of comissioning
+        Attribute<int> StartYY;
+        /// @brief Highest voltage ever recorded (V)
+        Attribute<int> V_Max;
+        /// @brief Lowest voltage ever recorded (V)
+        Attribute<int> V_Min;
+        /// @brief Highest voltage in past 24 hrs (V)
+        Attribute<int> V_Max_24;
+        /// @brief Lowest voltage in past 24 hrs (V)
+        Attribute<int> V_Min_24;
+        Attribute<int> CurrentZero;
+        Attribute<float> CurrentAdjust;
+        Attribute<float> VoltageAdjust;
+        Attribute<int> Ser1;
+        Attribute<int> Ser2;
+        Attribute<int> Ser3;
+        Attribute<int> VMAX;
+        Attribute<float> AHYS;
+        // 1 = Off??????
+        Attribute<int> HUSE;
+        Attribute<bool> HELE;
+        // 1 = HEAT
+        Attribute<int> HPMP;
+        Attribute<int> PMIN;
+        Attribute<int> PFLT;
+        Attribute<int> PHTR;
+        Attribute<int> PMAX;
 
 
 };
