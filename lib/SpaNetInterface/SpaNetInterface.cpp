@@ -138,6 +138,20 @@ void SpaNetInterface::initialise() {
     Vari_Speed._set_uFunc(_updateS2I);
     Vari_Percent._set_uFunc(_updateS2I);
     Vari_Mode._set_uFunc(_updateS2I);
+    // Unknown encoding - TouchPad2._set_uFunc();
+    // Unknown encoding - TouchPad1._set_uFunc();
+    RB_TP_Pump1._set_uFunc(_updateS2I);
+    RB_TP_Pump2._set_uFunc(_updateS2I);
+    RB_TP_Pump3._set_uFunc(_updateS2I);
+    RB_TP_Pump4._set_uFunc(_updateS2I);
+    RB_TP_Blower._set_uFunc(_updateS2I);
+    RB_TP_Light._set_uFunc(_updateS2I);
+    RB_TP_Auto._set_uFunc(_updateS2I);
+    RB_TP_Heater._set_uFunc(_updateS2I);
+    RB_TP_Ozone._set_uFunc(_updateS2I);
+    RB_TP_Sleep._set_uFunc(_updateS2I);
+    WTMP._set_uFunc(_updateS2Idiv10);
+
 
 }
 
@@ -210,8 +224,21 @@ void SpaNetInterface::updateMeasures() {
     HPHeatSourceOffset_Heat.updateValue(statusResponseRaw[82]);
     HPHeatSourceOffset_Cool.updateValue(statusResponseRaw[83]);
     HeatSourceOffTime.updateValue(statusResponseRaw[84]);
-    Vari_Speed.updateValue(statusResponseRaw[85]);
-    Vari_Percent.updateValue(statusResponseRaw[86]);
-    Vari_Mode.updateValue(statusResponseRaw[90]);
+    Vari_Speed.updateValue(statusResponseRaw[86]);
+    Vari_Percent.updateValue(statusResponseRaw[87]);
+    Vari_Mode.updateValue(statusResponseRaw[85]);
+    // Unknown encoding - TouchPad2.updateValue();
+    // Unknown encoding - TouchPad1.updateValue();
+    RB_TP_Pump1.updateValue(statusResponseRaw[97]);
+    RB_TP_Pump2.updateValue(statusResponseRaw[98]);
+    RB_TP_Pump3.updateValue(statusResponseRaw[99]);
+    RB_TP_Pump4.updateValue(statusResponseRaw[100]);
+    RB_TP_Blower.updateValue(statusResponseRaw[101]);
+    RB_TP_Light.updateValue(statusResponseRaw[102]);
+    RB_TP_Auto.updateValue(statusResponseRaw[103]);
+    RB_TP_Heater.updateValue(statusResponseRaw[104]);
+    RB_TP_Ozone.updateValue(statusResponseRaw[105]);
+    RB_TP_Sleep.updateValue(statusResponseRaw[106]);
+    WTMP.updateValue(statusResponseRaw[107]);
 
 };

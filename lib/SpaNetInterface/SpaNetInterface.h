@@ -180,6 +180,21 @@ class SpaNetInterface {
         // 5 = Filt
         // 4 = Off
         Attribute<int> Vari_Mode;
+        // Unknown encoding - Attribute<int> TouchPad2;
+        // Unknown encoding - Attribute<int> TouchPad1;
+        Attribute<int> RB_TP_Pump1;
+        Attribute<int> RB_TP_Pump2;
+        Attribute<int> RB_TP_Pump3;
+        Attribute<int> RB_TP_Pump4;
+        Attribute<int> RB_TP_Blower;
+        Attribute<int> RB_TP_Light;
+        Attribute<int> RB_TP_Auto;
+        Attribute<int> RB_TP_Heater;
+        Attribute<int> RB_TP_Ozone;
+        Attribute<int> RB_TP_Sleep;
+        /// @brief Water temperature ('C)
+        Attribute<float> WTMP;
+
 
 };
 
