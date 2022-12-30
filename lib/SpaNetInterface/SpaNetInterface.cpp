@@ -21,6 +21,10 @@ float SpaNetInterface::_updateS2Idiv10(String s) {
     return s.toFloat()/10;
 }
 
+float SpaNetInterface::_updateS2Idiv100(String s) {
+    return s.toFloat()/100;
+}
+
 int SpaNetInterface::_updateS2I(String s) {
     return s.toInt();
 }
@@ -109,6 +113,32 @@ void SpaNetInterface::initialise() {
     HAMB._set_uFunc(_updateS2I);
     HCON._set_uFunc(_updateS2I);
     HV_2._set_uFunc(_updateS2B);
+    Mode._set_uFunc(_updateS2S);
+    Ser1_Timer._set_uFunc(_updateS2I);
+    Ser2_Timer._set_uFunc(_updateS2I);
+    Ser3_Timer._set_uFunc(_updateS2I);
+    HeatMode._set_uFunc(_updateS2I);
+    PumpIdleTimer._set_uFunc(_updateS2I);
+    PumpRunTimer._set_uFunc(_updateS2I);
+    AdtPoolHys._set_uFunc(_updateS2Idiv10);
+    AdtHeaterHys._set_uFunc(_updateS2Idiv10);
+    Power._set_uFunc(_updateS2Idiv10);
+    Power_kWh._set_uFunc(_updateS2Idiv100);
+    Power_Today._set_uFunc(_updateS2Idiv100);
+    Power_Yesterday._set_uFunc(_updateS2Idiv100);
+    ThermalCutOut._set_uFunc(_updateS2I);
+    Test_D1._set_uFunc(_updateS2I);
+    Test_D2._set_uFunc(_updateS2I);
+    Test_D3._set_uFunc(_updateS2I);
+    ElementHeatSourceOffset._set_uFunc(_updateS2Idiv10);
+    Frequency._set_uFunc(_updateS2I);
+    HPHeatSourceOffset_Heat._set_uFunc(_updateS2Idiv10);
+    HPHeatSourceOffset_Cool._set_uFunc(_updateS2Idiv10);
+    HeatSourceOffTime._set_uFunc(_updateS2I);
+    Vari_Speed._set_uFunc(_updateS2I);
+    Vari_Percent._set_uFunc(_updateS2I);
+    Vari_Mode._set_uFunc(_updateS2I);
+
 }
 
 void SpaNetInterface::updateMeasures() {
@@ -158,4 +188,30 @@ void SpaNetInterface::updateMeasures() {
     HAMB.updateValue(statusResponseRaw[56]);
     HCON.updateValue(statusResponseRaw[57]);
     HV_2.updateValue(statusResponseRaw[58]);
+    Mode.updateValue(statusResponseRaw[63]);
+    Ser1_Timer.updateValue(statusResponseRaw[64]);
+    Ser2_Timer.updateValue(statusResponseRaw[65]);
+    Ser3_Timer.updateValue(statusResponseRaw[66]);
+    HeatMode.updateValue(statusResponseRaw[67]);
+    PumpIdleTimer.updateValue(statusResponseRaw[68]);
+    PumpRunTimer.updateValue(statusResponseRaw[69]);
+    AdtPoolHys.updateValue(statusResponseRaw[70]);
+    AdtHeaterHys.updateValue(statusResponseRaw[71]);
+    Power.updateValue(statusResponseRaw[72]);
+    Power_kWh.updateValue(statusResponseRaw[73]);
+    Power_Today.updateValue(statusResponseRaw[74]);
+    Power_Yesterday.updateValue(statusResponseRaw[75]);
+    ThermalCutOut.updateValue(statusResponseRaw[76]);
+    Test_D1.updateValue(statusResponseRaw[77]);
+    Test_D2.updateValue(statusResponseRaw[78]);
+    Test_D3.updateValue(statusResponseRaw[79]);
+    ElementHeatSourceOffset.updateValue(statusResponseRaw[80]);
+    Frequency.updateValue(statusResponseRaw[81]);
+    HPHeatSourceOffset_Heat.updateValue(statusResponseRaw[82]);
+    HPHeatSourceOffset_Cool.updateValue(statusResponseRaw[83]);
+    HeatSourceOffTime.updateValue(statusResponseRaw[84]);
+    Vari_Speed.updateValue(statusResponseRaw[85]);
+    Vari_Percent.updateValue(statusResponseRaw[86]);
+    Vari_Mode.updateValue(statusResponseRaw[90]);
+
 };

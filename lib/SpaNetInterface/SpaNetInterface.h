@@ -15,6 +15,7 @@ class SpaNetInterface {
         void initialise();
 
         static float _updateS2Idiv10(String s);
+        static float _updateS2Idiv100(String s);
         static int _updateS2I(String s);
         static bool _updateS2B(String s);
         static String _updateS2S(String s);
@@ -144,6 +145,42 @@ class SpaNetInterface {
         /// @brief HV_2
         //TODO - This could also be reg 59....
         Attribute<bool> HV_2;
+        Attribute<String> Mode;
+        Attribute<int> Ser1_Timer;
+        Attribute<int> Ser2_Timer;
+        Attribute<int> Ser3_Timer;
+        // 1 = Standby
+        // 2 = HeatMix
+        Attribute<int> HeatMode;
+        // assume sec
+        Attribute<int> PumpIdleTimer;
+        Attribute<int> PumpRunTimer;
+        Attribute<float> AdtPoolHys;
+        Attribute<float> AdtHeaterHys;
+        // (W)
+        Attribute<float> Power;
+        Attribute<float> Power_kWh;
+        // (kWh)
+        Attribute<float> Power_Today;
+        // (kWh)
+        Attribute<float> Power_Yesterday;
+        // 0 = ok
+        Attribute<int> ThermalCutOut;
+        Attribute<int> Test_D1;
+        Attribute<int> Test_D2;
+        Attribute<int> Test_D3;
+        Attribute<float> ElementHeatSourceOffset;
+        Attribute<int> Frequency;
+        Attribute<float> HPHeatSourceOffset_Heat;
+        // 100 = 0!?
+        Attribute<float> HPHeatSourceOffset_Cool;
+        Attribute<int> HeatSourceOffTime;
+        Attribute<int> Vari_Speed;
+        Attribute<int> Vari_Percent;
+        // 5 = Filt
+        // 4 = Off
+        Attribute<int> Vari_Mode;
+
 };
 
 
