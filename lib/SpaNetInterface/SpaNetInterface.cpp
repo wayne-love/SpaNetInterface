@@ -152,6 +152,35 @@ void SpaNetInterface::initialise() {
     RB_TP_Sleep._set_uFunc(_updateS2I);
     WTMP._set_uFunc(_updateS2Idiv10);
 
+    VARIValue._set_uFunc(_updateS2I);
+    LBRTValue._set_uFunc(_updateS2I);
+    CurrClr._set_uFunc(_updateS2I);
+    ColorMode._set_uFunc(_updateS2I);
+    LSPDValue._set_uFunc(_updateS2I);
+    FiltSetHrs._set_uFunc(_updateS2I);
+    FiltBlockHrs._set_uFunc(_updateS2I);
+    STMP._set_uFunc(_updateS2Idiv10);
+    L_24HOURS._set_uFunc(_updateS2I);
+    PSAV_LVL._set_uFunc(_updateS2B);
+    PSAV_BGN._set_uFunc(_updateS2I);
+    PSAV_END._set_uFunc(_updateS2I);
+    L_1SNZ_DAY._set_uFunc(_updateS2I);
+    L_2SNZ_DAY._set_uFunc(_updateS2I);
+    L_1SNZ_BGN._set_uFunc(_updateS2I);
+    L_2SNZ_BGN._set_uFunc(_updateS2I);
+    L_1SNZ_END._set_uFunc(_updateS2I);
+    L_2SNZ_END._set_uFunc(_updateS2I);
+    DefaultScrn._set_uFunc(_updateS2I);
+    TOUT._set_uFunc(_updateS2I);
+    VPMP._set_uFunc(_updateS2B);
+    HIFI._set_uFunc(_updateS2B);
+    BRND._set_uFunc(_updateS2I);
+    PRME._set_uFunc(_updateS2I);
+    ELMT._set_uFunc(_updateS2I);
+    TYPE._set_uFunc(_updateS2I);
+    GAS._set_uFunc(_updateS2I);
+
+
 
 }
 
@@ -240,5 +269,34 @@ void SpaNetInterface::updateMeasures() {
     RB_TP_Ozone.updateValue(statusResponseRaw[105]);
     RB_TP_Sleep.updateValue(statusResponseRaw[106]);
     WTMP.updateValue(statusResponseRaw[107]);
+
+    VARIValue.updateValue(statusResponseRaw[121]);
+    LBRTValue.updateValue(statusResponseRaw[122]);
+    CurrClr.updateValue(statusResponseRaw[123]);
+    ColorMode.updateValue(statusResponseRaw[124]);
+    LSPDValue.updateValue(statusResponseRaw[125]);
+    FiltSetHrs.updateValue(statusResponseRaw[126]);
+    FiltBlockHrs.updateValue(statusResponseRaw[127]);
+    STMP.updateValue(statusResponseRaw[128]);
+    L_24HOURS.updateValue(statusResponseRaw[129]);
+    PSAV_LVL.updateValue(statusResponseRaw[130]);
+    PSAV_BGN.updateValue(statusResponseRaw[131]);
+    PSAV_END.updateValue(statusResponseRaw[132]);
+    L_1SNZ_DAY.updateValue(statusResponseRaw[133]);
+    L_2SNZ_DAY.updateValue(statusResponseRaw[134]);
+    L_1SNZ_BGN.updateValue(statusResponseRaw[135]);
+    L_2SNZ_BGN.updateValue(statusResponseRaw[136]);
+    L_1SNZ_END.updateValue(statusResponseRaw[137]);
+    L_2SNZ_END.updateValue(statusResponseRaw[138]);
+    DefaultScrn.updateValue(statusResponseRaw[139]);
+    TOUT.updateValue(statusResponseRaw[140]);
+    VPMP.updateValue(statusResponseRaw[141]);
+    HIFI.updateValue(statusResponseRaw[142]);
+    BRND.updateValue(statusResponseRaw[143]);
+    PRME.updateValue(statusResponseRaw[144]);
+    ELMT.updateValue(statusResponseRaw[145]);
+    TYPE.updateValue(statusResponseRaw[146]);
+    GAS.updateValue(statusResponseRaw[147]);
+
 
 };

@@ -195,6 +195,44 @@ class SpaNetInterface {
         /// @brief Water temperature ('C)
         Attribute<float> WTMP;
 
+        Attribute<int> VARIValue;
+        Attribute<int> LBRTValue;
+        Attribute<int> CurrClr;
+        Attribute<int> ColorMode;
+        Attribute<int> LSPDValue;
+        Attribute<int> FiltSetHrs;
+        Attribute<int> FiltBlockHrs;
+        /// @brief Water temperature set point ('C)
+        Attribute<float> STMP;
+        // 1 = 12 hrs
+        Attribute<int> L_24HOURS;
+        Attribute<bool> PSAV_LVL;
+        // 3584 = 14:00 (1hr = 256)
+        Attribute<int> PSAV_BGN;
+        // 5120 = 20:00
+        Attribute<int> PSAV_END;
+        // 127 = all week (bit encoding?)
+        Attribute<int> L_1SNZ_DAY;
+        // 128 = disabled
+        Attribute<int> L_2SNZ_DAY;
+        Attribute<int> L_1SNZ_BGN;
+        Attribute<int> L_2SNZ_BGN;
+        Attribute<int> L_1SNZ_END;
+        Attribute<int> L_2SNZ_END;
+        // 0 = WTPM
+        Attribute<int> DefaultScrn;
+        Attribute<int> TOUT;
+        Attribute<bool> VPMP;
+        Attribute<bool> HIFI;
+        // 2 = VORT
+        Attribute<int> BRND;
+        // 0 = 10secF
+        Attribute<int> PRME;
+        Attribute<int> ELMT;
+        // 3 = SV3
+        Attribute<int> TYPE;
+        Attribute<int> GAS;
+
 
 };
 
