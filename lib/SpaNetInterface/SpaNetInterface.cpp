@@ -181,7 +181,7 @@ void SpaNetInterface::initialise() {
     GAS._set_uFunc(_updateS2I);
     //R7
     WCLNTime._set_uFunc(_updateS2I);
-    TemperatureUnits._set_uFunc(_updateS2I);
+    TemperatureUnits._set_uFunc(_updateS2B);
     OzoneOff._set_uFunc(_updateS2B);
     Ozone24._set_uFunc(_updateS2I);
     Circ24._set_uFunc(_updateS2B);
@@ -210,7 +210,86 @@ void SpaNetInterface::initialise() {
     PHTR._set_uFunc(_updateS2I);
     PMAX._set_uFunc(_updateS2I);
 
-
+    //R9.
+    F1_HR._set_uFunc(_updateS2Idiv10);
+    F1_Time._set_uFunc(_updateS2I);
+    F1_ER._set_uFunc(_updateS2I);
+    F1_I._set_uFunc(_updateS2Idiv10);
+    F1_V._set_uFunc(_updateS2I);
+    F1_PT._set_uFunc(_updateS2Idiv10);
+    F1_HT._set_uFunc(_updateS2Idiv10);
+    F1_CT._set_uFunc(_updateS2Idiv10);
+    F1_PU._set_uFunc(_updateS2I);
+    F1_VE._set_uFunc(_updateS2B);
+    F1_ST._set_uFunc(_updateS2Idiv10);
+    //RA.
+    F2_HR._set_uFunc(_updateS2Idiv10);
+    F2_Time._set_uFunc(_updateS2I);
+    F2_ER._set_uFunc(_updateS2I);
+    F2_I._set_uFunc(_updateS2Idiv10);
+    F2_V._set_uFunc(_updateS2I);
+    F2_PT._set_uFunc(_updateS2Idiv10);
+    F2_HT._set_uFunc(_updateS2Idiv10);
+    F2_CT._set_uFunc(_updateS2Idiv10);
+    F2_PU._set_uFunc(_updateS2I);
+    F2_VE._set_uFunc(_updateS2B);
+    F2_ST._set_uFunc(_updateS2Idiv10);
+    //RB.
+    F3_HR._set_uFunc(_updateS2Idiv10);
+    F3_Time._set_uFunc(_updateS2I);
+    F3_ER._set_uFunc(_updateS2I);
+    F3_I._set_uFunc(_updateS2Idiv10);
+    F3_V._set_uFunc(_updateS2I);
+    F3_PT._set_uFunc(_updateS2Idiv10);
+    F3_HT._set_uFunc(_updateS2Idiv10);
+    F3_CT._set_uFunc(_updateS2Idiv10);
+    F3_PU._set_uFunc(_updateS2I);
+    F3_VE._set_uFunc(_updateS2B);
+    F3_ST._set_uFunc(_updateS2Idiv10);
+    //RC
+    //Outlet_Heater._set_uFunc(_updateS2I);
+    //Outlet_Circ._set_uFunc(_updateS2I);
+    //Outlet_Sanitise._set_uFunc(_updateS2I);
+    //Outlet_Pump1._set_uFunc(_updateS2I);
+    //Outlet_Pump2._set_uFunc(_updateS2I);
+    //Outlet_Pump4._set_uFunc(_updateS2I);
+    //Outlet_Pump5._set_uFunc(_updateS2I);
+    //Outlet_Blower._set_uFunc(_updateS2I);
+    //RE
+    HP_Present._set_uFunc(_updateS2I);
+    //HP_FlowSwitch._set_uFunc(_updateS2I);
+    //HP_HighSwitch._set_uFunc(_updateS2I);
+    //HP_LowSwitch._set_uFunc(_updateS2I);
+    //HP_CompCutOut._set_uFunc(_updateS2I);
+    //HP_ExCutOut._set_uFunc(_updateS2I);
+    //HP_D1._set_uFunc(_updateS2I);
+    //HP_D2._set_uFunc(_updateS2I);
+    //HP_D3._set_uFunc(_updateS2I);
+    HP_Ambient._set_uFunc(_updateS2I);
+    HP_Condensor._set_uFunc(_updateS2I);
+    HP_Compressor_State._set_uFunc(_updateS2B);
+    HP_Fan_State._set_uFunc(_updateS2B);
+    HP_4W_Valve._set_uFunc(_updateS2B);
+    HP_Heater_State._set_uFunc(_updateS2B);
+    HP_State._set_uFunc(_updateS2I);
+    HP_Mode._set_uFunc(_updateS2I);
+    HP_Defrost_Timer._set_uFunc(_updateS2I);
+    HP_Comp_Run_Timer._set_uFunc(_updateS2I);
+    HP_Low_Temp_Timer._set_uFunc(_updateS2I);
+    HP_Heat_Accum_Timer._set_uFunc(_updateS2I);
+    HP_Sequence_Timer._set_uFunc(_updateS2I);
+    HP_Warning._set_uFunc(_updateS2I);
+    FrezTmr._set_uFunc(_updateS2I);
+    DBGN._set_uFunc(_updateS2I);
+    DEND._set_uFunc(_updateS2I);
+    DCMP._set_uFunc(_updateS2I);
+    DMAX._set_uFunc(_updateS2I);
+    DELE._set_uFunc(_updateS2I);
+    DPMP._set_uFunc(_updateS2I);
+    //CMAX._set_uFunc(_updateS2I);
+    //HP_Compressor._set_uFunc(_updateS2I);
+    //HP_Pump_State._set_uFunc(_updateS2I);
+    //HP_Status._set_uFunc(_updateS2I);
 }
 
 void SpaNetInterface::updateMeasures() {
@@ -358,5 +437,86 @@ void SpaNetInterface::updateMeasures() {
     PFLT.updateValue(statusResponseRaw[177]);
     PHTR.updateValue(statusResponseRaw[178]);
     PMAX.updateValue(statusResponseRaw[179]);
+
+    //R9
+    F1_HR.updateValue(statusResponseRaw[185]);
+    F1_Time.updateValue(statusResponseRaw[186]);
+    F1_ER.updateValue(statusResponseRaw[187]);
+    F1_I.updateValue(statusResponseRaw[188]);
+    F1_V.updateValue(statusResponseRaw[189]);
+    F1_PT.updateValue(statusResponseRaw[190]);
+    F1_HT.updateValue(statusResponseRaw[191]);
+    F1_CT.updateValue(statusResponseRaw[192]);
+    F1_PU.updateValue(statusResponseRaw[193]);
+    F1_VE.updateValue(statusResponseRaw[194]);
+    F1_ST.updateValue(statusResponseRaw[195]);
+    //RA
+    F2_HR.updateValue(statusResponseRaw[199]);
+    F2_Time.updateValue(statusResponseRaw[200]);
+    F2_ER.updateValue(statusResponseRaw[201]);
+    F2_I.updateValue(statusResponseRaw[202]);
+    F2_V.updateValue(statusResponseRaw[203]);
+    F2_PT.updateValue(statusResponseRaw[204]);
+    F2_HT.updateValue(statusResponseRaw[205]);
+    F2_CT.updateValue(statusResponseRaw[206]);
+    F2_PU.updateValue(statusResponseRaw[207]);
+    F2_VE.updateValue(statusResponseRaw[208]);
+    F2_ST.updateValue(statusResponseRaw[209]);
+    //RB
+    F3_HR.updateValue(statusResponseRaw[213]);
+    F3_Time.updateValue(statusResponseRaw[214]);
+    F3_ER.updateValue(statusResponseRaw[215]);
+    F3_I.updateValue(statusResponseRaw[216]);
+    F3_V.updateValue(statusResponseRaw[217]);
+    F3_PT.updateValue(statusResponseRaw[218]);
+    F3_HT.updateValue(statusResponseRaw[219]);
+    F3_CT.updateValue(statusResponseRaw[220]);
+    F3_PU.updateValue(statusResponseRaw[221]);
+    F3_VE.updateValue(statusResponseRaw[222]);
+    F3_ST.updateValue(statusResponseRaw[223]);
+    //RC
+    //Outlet_Heater.updateValue(statusResponseRaw[]);
+    //Outlet_Circ.updateValue(statusResponseRaw[]);
+    //Outlet_Sanitise.updateValue(statusResponseRaw[]);
+    //Outlet_Pump1.updateValue(statusResponseRaw[]);
+    //Outlet_Pump2.updateValue(statusResponseRaw[]);
+    //Outlet_Pump4.updateValue(statusResponseRaw[]);
+    //Outlet_Pump5.updateValue(statusResponseRaw[]);
+    //Outlet_Blower.updateValue(statusResponseRaw[]);
+    //RE
+    HP_Present.updateValue(statusResponseRaw[242]);
+    //HP_FlowSwitch.updateValue(statusResponseRaw[]);
+    //HP_HighSwitch.updateValue(statusResponseRaw[]);
+    //HP_LowSwitch.updateValue(statusResponseRaw[]);
+    //HP_CompCutOut.updateValue(statusResponseRaw[]);
+    //HP_ExCutOut.updateValue(statusResponseRaw[]);
+    //HP_D1.updateValue(statusResponseRaw[]);
+    //HP_D2.updateValue(statusResponseRaw[]);
+    //HP_D3.updateValue(statusResponseRaw[]);
+    HP_Ambient.updateValue(statusResponseRaw[251]);
+    HP_Condensor.updateValue(statusResponseRaw[252]);
+    HP_Compressor_State.updateValue(statusResponseRaw[253]);
+    HP_Fan_State.updateValue(statusResponseRaw[254]);
+    HP_4W_Valve.updateValue(statusResponseRaw[255]);
+    HP_Heater_State.updateValue(statusResponseRaw[256]);
+    HP_State.updateValue(statusResponseRaw[257]);
+    HP_Mode.updateValue(statusResponseRaw[258]);
+    HP_Defrost_Timer.updateValue(statusResponseRaw[259]);
+    HP_Comp_Run_Timer.updateValue(statusResponseRaw[260]);
+    HP_Low_Temp_Timer.updateValue(statusResponseRaw[261]);
+    HP_Heat_Accum_Timer.updateValue(statusResponseRaw[262]);
+    HP_Sequence_Timer.updateValue(statusResponseRaw[263]);
+    HP_Warning.updateValue(statusResponseRaw[264]);
+    FrezTmr.updateValue(statusResponseRaw[265]);
+    DBGN.updateValue(statusResponseRaw[266]);
+    DEND.updateValue(statusResponseRaw[267]);
+    DCMP.updateValue(statusResponseRaw[268]);
+    DMAX.updateValue(statusResponseRaw[269]);
+    DELE.updateValue(statusResponseRaw[270]);
+    DPMP.updateValue(statusResponseRaw[271]);
+    //CMAX.updateValue(statusResponseRaw[]);
+    //HP_Compressor.updateValue(statusResponseRaw[]);
+    //HP_Pump_State.updateValue(statusResponseRaw[]);
+    //HP_Status.updateValue(statusResponseRaw[]);
 
 };

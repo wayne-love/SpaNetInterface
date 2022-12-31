@@ -219,30 +219,40 @@ class SpaNetInterface {
         Attribute<int> L_2SNZ_BGN;
         Attribute<int> L_1SNZ_END;
         Attribute<int> L_2SNZ_END;
-        // 0 = WTPM
+        /// @brief Default screen for control panels
+        ///
+        /// 0 = WTPM
         Attribute<int> DefaultScrn;
         Attribute<int> TOUT;
         Attribute<bool> VPMP;
         Attribute<bool> HIFI;
-        // 2 = VORT
+        /// @brief BRND
+        ///
+        /// 2 = VORT
         Attribute<int> BRND;
-        // 0 = 10secF
+        /// @brief PRME
+        ///
+        /// 0 = 10secF
         Attribute<int> PRME;
         Attribute<int> ELMT;
-        // 3 = SV3
+        /// @brief TYPE
+        ///
+        /// 3 = SV3
         Attribute<int> TYPE;
         Attribute<int> GAS;
         // R7
         /// @brief Daily clean cycle start time (1 hr = 256, 2pm = 3584)
         Attribute<int> WCLNTime;
-        // 0 = 'C
-        Attribute<int> TemperatureUnits;
+        /// @brief Use 'F instead of 'C as the temp. UMO
+        Attribute<bool> TemperatureUnits;
         Attribute<bool> OzoneOff;
         Attribute<int> Ozone24;
         Attribute<bool> Circ24;
         Attribute<bool> CJET;
-        // This may be mapped wrong to the wrong register
-        // 3 = Vari
+        /// @brief VELE
+        ///
+        /// This may be mapped wrong to the wrong register
+        /// 3 = Vari
         Attribute<int> VELE;
         /// @brief Date of comissioning
         Attribute<int> StartDD;
@@ -266,15 +276,144 @@ class SpaNetInterface {
         Attribute<int> Ser3;
         Attribute<int> VMAX;
         Attribute<float> AHYS;
-        // 1 = Off??????
+        /// @brief HUSE
+        ///
+        /// 1 = Off
         Attribute<int> HUSE;
         Attribute<bool> HELE;
-        // 1 = HEAT
+        /// @brief HPMP
+        ///
+        /// 1 = HEAT
         Attribute<int> HPMP;
         Attribute<int> PMIN;
         Attribute<int> PFLT;
         Attribute<int> PHTR;
         Attribute<int> PMAX;
+        //R9
+        /// @brief Fault runtime occurance (hrs)
+        Attribute<float> F1_HR;
+        /// @brief Fault time of day occurance
+        Attribute<int> F1_Time;
+        /// @brief Fault error codes
+        ///
+        /// 6 = ER612VOverload - High current detected on 12v line
+        Attribute<int> F1_ER;
+        /// @brief Supply current draw at time of error (A)
+        Attribute<float> F1_I;
+        /// @brief Supply voltage at time of error (V)
+        Attribute<int> F1_V;
+        /// @brief Pool temperature at time of error ('C)
+        Attribute<float> F1_PT;
+        /// @brief Heater temperature at time of error ('C)
+        Attribute<float> F1_HT;
+        Attribute<float> F1_CT;
+        Attribute<int> F1_PU;
+        Attribute<bool> F1_VE;
+        /// @brief Heater setpoint at time of error ('C)
+        Attribute<float> F1_ST;
+        //RA
+        /// @brief Fault runtime occurance (hrs)
+        Attribute<float> F2_HR;
+        /// @brief Fault time of day occurance
+        Attribute<int> F2_Time;
+        /// @brief Fault error codes
+        ///
+        /// 6 = ER612VOverload - High current detected on 12v line
+        Attribute<int> F2_ER;
+        /// @brief Supply current draw at time of error (A)
+        Attribute<float> F2_I;
+        /// @brief Supply voltage at time of error (V)
+        Attribute<int> F2_V;
+        /// @brief Pool temperature at time of error ('C)
+        Attribute<float> F2_PT;
+        /// @brief Heater temperature at time of error ('C)
+        Attribute<float> F2_HT;
+        Attribute<float> F2_CT;
+        Attribute<int> F2_PU;
+        Attribute<bool> F2_VE;
+        /// @brief Heater setpoint at time of error ('C)
+        Attribute<float> F2_ST;
+        //RB
+        /// @brief Fault runtime occurance (hrs)
+        Attribute<float> F3_HR;
+        /// @brief Fault time of day occurance
+        Attribute<int> F3_Time;
+        /// @brief Fault error codes
+        ///
+        /// 6 = ER612VOverload - High current detected on 12v line
+        Attribute<int> F3_ER;
+        /// @brief Supply current draw at time of error (A)
+        Attribute<float> F3_I;
+        /// @brief Supply voltage at time of error (V)
+        Attribute<int> F3_V;
+        /// @brief Pool temperature at time of error ('C)
+        Attribute<float> F3_PT;
+        /// @brief Heater temperature at time of error ('C)
+        Attribute<float> F3_HT;
+        Attribute<float> F3_CT;
+        Attribute<int> F3_PU;
+        Attribute<bool> F3_VE;
+        /// @brief Heater setpoint at time of error ('C)
+        Attribute<float> F3_ST;
+        //RC
+        // Encoding of the RC registers is not obvious
+        //Attribute<bool> Outlet_Heater;
+        //Attribute<bool> Outlet_Circ;
+        //Attribute<bool> Outlet_Sanitise;
+        //Attribute<bool> Outlet_Pump1;
+        //Attribute<bool> Outlet_Pump2;
+        //Attribute<bool> Outlet_Pump4;
+        //Attribute<bool> Outlet_Pump5;
+        //Attribute<bool> Outlet_Blower;
+        //RE
+        /// @brief Heatpump installed / interface version
+        Attribute<int> HP_Present;
+        // Encoding of these registers is not clear
+        //Attribute<bool> HP_FlowSwitch;
+        //Attribute<bool> HP_HighSwitch;
+        //Attribute<bool> HP_LowSwitch;
+        //Attribute<bool> HP_CompCutOut;
+        //Attribute<bool> HP_ExCutOut;
+        //Attribute<bool> HP_D1;
+        //Attribute<bool> HP_D2;
+        //Attribute<bool> HP_D3;
+        /// @brief Ambient air temperature ('C)
+        Attribute<int> HP_Ambient;
+        /// @brief Compressor temperature ('C)
+        Attribute<int> HP_Condensor;
+        /// @brief Compressor running
+        Attribute<bool> HP_Compressor_State;
+        /// @brief Fan running
+        Attribute<bool> HP_Fan_State;
+        Attribute<bool> HP_4W_Valve;
+        Attribute<bool> HP_Heater_State;
+        /// @brief Heatpump state
+        ///
+        /// 0 = Standby
+        Attribute<int> HP_State;
+        /// @brief Heatpump mode
+        ///
+        /// 1 = Heat
+        Attribute<int> HP_Mode;
+        Attribute<int> HP_Defrost_Timer;
+        Attribute<int> HP_Comp_Run_Timer;
+        Attribute<int> HP_Low_Temp_Timer;
+        Attribute<int> HP_Heat_Accum_Timer;
+        Attribute<int> HP_Sequence_Timer;
+        Attribute<int> HP_Warning;
+        Attribute<int> FrezTmr;
+        Attribute<int> DBGN;
+        Attribute<int> DEND;
+        Attribute<int> DCMP;
+        Attribute<int> DMAX;
+        Attribute<int> DELE;
+        Attribute<int> DPMP;
+        //Attribute<int> CMAX;
+        //Attribute<int> HP_Compressor;
+        //Attribute<int> HP_Pump_State;
+        //Attribute<int> HP_Status;
+
+
 
 
 };
