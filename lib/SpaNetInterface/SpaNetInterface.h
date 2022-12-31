@@ -570,7 +570,7 @@ class SpaNetInterface {
         /// @brief Lock mode
         ///
         /// 0 = keypad unlocked, 1 = partial lock, 2 = full lock
-        Attribute<int> LockMode
+        Attribute<int> LockMode;
 
 #pragma endregion
 
