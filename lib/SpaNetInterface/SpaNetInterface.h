@@ -47,6 +47,8 @@ class SpaNetInterface {
 
         };
 
+        #pragma region R2
+        // R2
         /// @brief Mains current draw (A)
         Attribute<float> MainsCurrent;
         /// @brief Mains voltage (V)
@@ -68,12 +70,14 @@ class SpaNetInterface {
         Attribute<int> AwakeMinutesRemaining;
         /// @brief FiltPumpRunTimeTotal (min)
         Attribute<int> FiltPumpRunTimeTotal;
-        /// @brief FiltPumpReqMins (sec)
+        /// @brief FiltPumpReqMins
         //TODO - the value here does not match the value in the snampshot data (1442 != 2:00)
         Attribute<int> FiltPumpReqMins; 
         /// @brief LoadTimeOut (sec)
         Attribute<int> LoadTimeOut;
-        /// @brief HourMeter (sec)
+        /// @brief HourMeter (hours)
+        ///
+        /// Hours of runtime
         Attribute<float> HourMeter;
         /// @brief Relay1 (?)
         Attribute<int> Relay1;
@@ -94,6 +98,9 @@ class SpaNetInterface {
         /// @brief Relay9 (?)
         Attribute<int> Relay9;
         //TODO - Reg 31 unknown data
+        #pragma endregion
+        #pragma region R3
+        //R3
         /// @brief Current limit (A)
         Attribute<int> CLMT;
         /// @brief Power phases in use
@@ -136,7 +143,7 @@ class SpaNetInterface {
         Attribute<String> Status;
         /// @brief PrimeCount
         Attribute<int> PrimeCount;
-        /// @brief EC
+        /// @brief Heat element current draw (A)
         Attribute<float> EC;
         /// @brief HAMB
         Attribute<int> HAMB;
@@ -145,6 +152,12 @@ class SpaNetInterface {
         /// @brief HV_2
         //TODO - This could also be reg 59....
         Attribute<bool> HV_2;
+        #pragma endregion
+        #pragma region R4
+        //R4
+        /// @brief Operation mode
+        ///
+        /// One of NORM, ECON, AWAY, WEEK
         Attribute<String> Mode;
         Attribute<int> Ser1_Timer;
         Attribute<int> Ser2_Timer;
@@ -180,49 +193,129 @@ class SpaNetInterface {
         // 5 = Filt
         // 4 = Off
         Attribute<int> Vari_Mode;
+        #pragma endregion
+        #pragma region R5
+        //R5
         // Unknown encoding - Attribute<int> TouchPad2;
         // Unknown encoding - Attribute<int> TouchPad1;
+        /// @brief Pump 1 state
+        ///
+        /// 0 = off, 1 = running, 4 = auto
         Attribute<int> RB_TP_Pump1;
+        /// @brief Pump 2 state
+        ///
+        /// 0 = off, 1 = running, 4 = auto
         Attribute<int> RB_TP_Pump2;
+        /// @brief Pump 3 state
+        ///
+        /// 0 = off, 1 = running, 4 = auto
         Attribute<int> RB_TP_Pump3;
+        /// @brief Pump 4 state
+        ///
+        /// 0 = off, 1 = running, 4 = auto
         Attribute<int> RB_TP_Pump4;
+        /// @brief Pump 5 state
+        ///
+        /// 0 = off, 1 = running, 4 = auto
+        Attribute<int> RB_TP_Pump5;
         Attribute<int> RB_TP_Blower;
         Attribute<int> RB_TP_Light;
-        Attribute<int> RB_TP_Auto;
-        Attribute<int> RB_TP_Heater;
-        Attribute<int> RB_TP_Ozone;
-        Attribute<int> RB_TP_Sleep;
+        /// @brief Auto enabled
+        ///
+        /// True when auto enabled
+        Attribute<bool> RB_TP_Auto;
+        /// @brief Heating running
+        ///
+        /// True when heating/cooling active
+        Attribute<bool> RB_TP_Heater;
+        /// @brief Cleaning (UV/Ozone running)
+        ///
+        /// True when Ozone/UV is cleaning spa.
+        Attribute<bool> RB_TP_Ozone;
+        /// @brief Sleeping
+        ///
+        /// True when spa is sleeping due to sleep timer
+        Attribute<bool> RB_TP_Sleep;
         /// @brief Water temperature ('C)
         Attribute<float> WTMP;
-
+        /// @brief Clean cycle running
+        ///
+        /// True when a clean cycle is running
+        Attribute<bool> CleanCycle;
+        #pragma endregion     
+        #pragma region R6
+        //R6
+        /// @brief Blower variable speed
+        ///
+        /// min 1, max 5
         Attribute<int> VARIValue;
+        /// @brief Lights brightness
+        ///
+        /// min 1, max 5
         Attribute<int> LBRTValue;
+        /// @brief Light colour
+        ///
+        /// min 0, max 31
         Attribute<int> CurrClr;
+        /// @brief Lights mode
+        ///
+        /// 0 = white, 1 = colour, 2 = step, 3 = fade, 4 = party
         Attribute<int> ColorMode;
+        /// @brief Light effect speed
+        ///
+        /// min 1, max 5
         Attribute<int> LSPDValue;
+        /// @brief Filter run time (in hours) per block
         Attribute<int> FiltSetHrs;
+        /// @brief Filter block duration (hours)
         Attribute<int> FiltBlockHrs;
         /// @brief Water temperature set point ('C)
         Attribute<float> STMP;
         // 1 = 12 hrs
         Attribute<int> L_24HOURS;
-        Attribute<bool> PSAV_LVL;
-        // 3584 = 14:00 (1hr = 256)
+        /// @brief Power save level
+        ///
+        /// 0 = off, 1 = low, 2 = high
+        Attribute<int> PSAV_LVL;
+        /// @brief Peak power start time
+        ///
+        /// Formula h*256+m (ie: for 20:00, integer will be 20*256+0 = 5120; for 13:47, integer will be 13*256+47 = 3375)
         Attribute<int> PSAV_BGN;
-        // 5120 = 20:00
+        /// @brief Peak power end time
+        ///
+        /// Formula h*256+m (ie: for 20:00, integer will be 20*256+0 = 5120; for 13:47, integer will be 13*256+47 = 3375)
         Attribute<int> PSAV_END;
-        // 127 = all week (bit encoding?)
+        /// @brief Sleep timer 1
+        ///
+        /// 128 = off, 127 = every day, 96 = weekends, 31 = weekdays
         Attribute<int> L_1SNZ_DAY;
-        // 128 = disabled
+        /// @brief Sleep timer 2
+        ///
+        /// 128 = off, 127 = every day, 96 = weekends, 31 = weekdays
         Attribute<int> L_2SNZ_DAY;
+        /// @brief Sleep time 1 start time
+        ///
+        /// Formula h*256+m (ie: for 20:00, integer will be 20*256+0 = 5120; for 13:47, integer will be 13*256+47 = 3375)
         Attribute<int> L_1SNZ_BGN;
+        /// @brief Sleep time 2 start time
+        ///
+        /// Formula h*256+m (ie: for 20:00, integer will be 20*256+0 = 5120; for 13:47, integer will be 13*256+47 = 3375)
         Attribute<int> L_2SNZ_BGN;
+        /// @brief Sleep time 1 end time
+        ///
+        /// Formula h*256+m (ie: for 20:00, integer will be 20*256+0 = 5120; for 13:47, integer will be 13*256+47 = 3375)
         Attribute<int> L_1SNZ_END;
+        /// @brief Sleep time 1 end time
+        ///
+        /// Formula h*256+m (ie: for 20:00, integer will be 20*256+0 = 5120; for 13:47, integer will be 13*256+47 = 3375)
         Attribute<int> L_2SNZ_END;
         /// @brief Default screen for control panels
         ///
         /// 0 = WTPM
         Attribute<int> DefaultScrn;
+        /// @brief Time out duration (min)
+        ///
+        /// Time in min before pump and blower time out (min 10, max 30)
         Attribute<int> TOUT;
         Attribute<bool> VPMP;
         Attribute<bool> HIFI;
@@ -240,8 +333,12 @@ class SpaNetInterface {
         /// 3 = SV3
         Attribute<int> TYPE;
         Attribute<int> GAS;
+        #pragma endregion
+        #pragma region R7
         // R7
-        /// @brief Daily clean cycle start time (1 hr = 256, 2pm = 3584)
+        /// @brief Daily clean cycle start time
+        ///
+        /// Time with the formula h*256+m (ie: for 20:00, integer will be 20*256+0 = 5120; for 13:47, integer will be 13*256+47 = 3375)
         Attribute<int> WCLNTime;
         /// @brief Use 'F instead of 'C as the temp. UMO
         Attribute<bool> TemperatureUnits;
@@ -280,15 +377,20 @@ class SpaNetInterface {
         ///
         /// 1 = Off
         Attribute<int> HUSE;
-        Attribute<bool> HELE;
-        /// @brief HPMP
+        /// @brief Heat element boost
         ///
-        /// 1 = HEAT
+        /// Use heating elemenet to supplement heatpump.
+        Attribute<bool> HELE;
+        /// @brief Heatpump mode
+        ///
+        /// 0 = Auto, 1 = Heat, 2 = Cool, 3 = disabled
         Attribute<int> HPMP;
         Attribute<int> PMIN;
         Attribute<int> PFLT;
         Attribute<int> PHTR;
         Attribute<int> PMAX;
+        #pragma endregion
+        #pragma region R9
         //R9
         /// @brief Fault runtime occurance (hrs)
         Attribute<float> F1_HR;
@@ -311,6 +413,8 @@ class SpaNetInterface {
         Attribute<bool> F1_VE;
         /// @brief Heater setpoint at time of error ('C)
         Attribute<float> F1_ST;
+        #pragma endregion
+        #pragma region RA
         //RA
         /// @brief Fault runtime occurance (hrs)
         Attribute<float> F2_HR;
@@ -333,6 +437,8 @@ class SpaNetInterface {
         Attribute<bool> F2_VE;
         /// @brief Heater setpoint at time of error ('C)
         Attribute<float> F2_ST;
+        #pragma endregion
+        #pragma region RB
         //RB
         /// @brief Fault runtime occurance (hrs)
         Attribute<float> F3_HR;
@@ -355,6 +461,8 @@ class SpaNetInterface {
         Attribute<bool> F3_VE;
         /// @brief Heater setpoint at time of error ('C)
         Attribute<float> F3_ST;
+        #pragma endregion
+        #pragma region RC
         //RC
         // Encoding of the RC registers is not obvious
         //Attribute<bool> Outlet_Heater;
@@ -364,7 +472,12 @@ class SpaNetInterface {
         //Attribute<bool> Outlet_Pump2;
         //Attribute<bool> Outlet_Pump4;
         //Attribute<bool> Outlet_Pump5;
-        //Attribute<bool> Outlet_Blower;
+        /// @brief Blower status
+        ///
+        /// 0 = variable mode, 1 = ramp mode, 2 = off
+        Attribute<int> Outlet_Blower;
+        #pragma endregion
+        #pragma region RE
         //RE
         /// @brief Heatpump installed / interface version
         Attribute<int> HP_Present;
@@ -412,9 +525,54 @@ class SpaNetInterface {
         //Attribute<int> HP_Compressor;
         //Attribute<int> HP_Pump_State;
         //Attribute<int> HP_Status;
+        #pragma endregion
+        #pragma region RG
+        /// @brief Pump 1 install state
+        ///
+        /// (eg 1-1-014) First part (1- or 0-) indicates whether the pump is installed/fitted. If so (1- 
+        /// means it is), the second part (1- above) indicates it's speed type. The third 
+        /// part (014 above) represents it's possible states (0 OFF, 1 ON, 4 AUTO)
+        Attribute<String> Pump1InstallState;
+        /// @brief Pump 2 install state
+        ///
+        /// (eg 1-1-014) First part (1- or 0-) indicates whether the pump is installed/fitted. If so (1- 
+        /// means it is), the second part (1- above) indicates it's speed type. The third 
+        /// part (014 above) represents it's possible states (0 OFF, 1 ON, 4 AUTO)
+        Attribute<String> Pump2InstallState;
+        /// @brief Pump 3 install state
+        ///
+        /// (eg 1-1-014) First part (1- or 0-) indicates whether the pump is installed/fitted. If so (1- 
+        /// means it is), the second part (1- above) indicates it's speed type. The third 
+        /// part (014 above) represents it's possible states (0 OFF, 1 ON, 4 AUTO)
+        Attribute<String> Pump3InstallState;
+        /// @brief Pump 4 install state
+        ///
+        /// (eg 1-1-014) First part (1- or 0-) indicates whether the pump is installed/fitted. If so (1- 
+        /// means it is), the second part (1- above) indicates it's speed type. The third 
+        /// part (014 above) represents it's possible states (0 OFF, 1 ON, 4 AUTO)
+        Attribute<String> Pump4InstallState;       
+        /// @brief Pump 5 install state
+        ///
+        /// (eg 1-1-014) First part (1- or 0-) indicates whether the pump is installed/fitted. If so (1- 
+        /// means it is), the second part (1- above) indicates it's speed type. The third 
+        /// part (014 above) represents it's possible states (0 OFF, 1 ON, 4 AUTO)
+        Attribute<String> Pump5InstallState;
+        /// @brief Pump 1 is in safe state to start
+        Attribute<bool> Pump1OkToRun;
+        /// @brief Pump 2 is in safe state to start
+        Attribute<bool> Pump2OkToRun;
+        /// @brief Pump 3 is in safe state to start
+        Attribute<bool> Pump3OkToRun;
+        /// @brief Pump 4 is in safe state to start
+        Attribute<bool> Pump4OkToRun;
+        /// @brief Pump 5 is in safe state to start
+        Attribute<bool> Pump5OkToRun;
+        /// @brief Lock mode
+        ///
+        /// 0 = keypad unlocked, 1 = partial lock, 2 = full lock
+        Attribute<int> LockMode
 
-
-
+#pragma endregion
 
 };
 

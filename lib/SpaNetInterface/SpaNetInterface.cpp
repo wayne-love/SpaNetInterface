@@ -67,6 +67,8 @@ bool SpaNetInterface::readStatus() {
 }
 
 void SpaNetInterface::initialise() {
+
+
     MainsCurrent._set_uFunc(_updateS2Idiv10);
     MainsVoltage._set_uFunc(_updateS2I);
     CaseTemperature._set_uFunc(_updateS2I);
@@ -138,6 +140,8 @@ void SpaNetInterface::initialise() {
     Vari_Speed._set_uFunc(_updateS2I);
     Vari_Percent._set_uFunc(_updateS2I);
     Vari_Mode._set_uFunc(_updateS2I);
+
+    #pragma region R5
     // Unknown encoding - TouchPad2._set_uFunc();
     // Unknown encoding - TouchPad1._set_uFunc();
     RB_TP_Pump1._set_uFunc(_updateS2I);
@@ -146,11 +150,14 @@ void SpaNetInterface::initialise() {
     RB_TP_Pump4._set_uFunc(_updateS2I);
     RB_TP_Blower._set_uFunc(_updateS2I);
     RB_TP_Light._set_uFunc(_updateS2I);
-    RB_TP_Auto._set_uFunc(_updateS2I);
-    RB_TP_Heater._set_uFunc(_updateS2I);
-    RB_TP_Ozone._set_uFunc(_updateS2I);
-    RB_TP_Sleep._set_uFunc(_updateS2I);
+    RB_TP_Auto._set_uFunc(_updateS2B);
+    RB_TP_Heater._set_uFunc(_updateS2B);
+    RB_TP_Ozone._set_uFunc(_updateS2B);
+    RB_TP_Sleep._set_uFunc(_updateS2B);
     WTMP._set_uFunc(_updateS2Idiv10);
+    CleanCycle._set_uFunc(_updateS2B);
+    #pragma endregion
+
     // R6
     VARIValue._set_uFunc(_updateS2I);
     LBRTValue._set_uFunc(_updateS2I);
@@ -161,7 +168,7 @@ void SpaNetInterface::initialise() {
     FiltBlockHrs._set_uFunc(_updateS2I);
     STMP._set_uFunc(_updateS2Idiv10);
     L_24HOURS._set_uFunc(_updateS2I);
-    PSAV_LVL._set_uFunc(_updateS2B);
+    PSAV_LVL._set_uFunc(_updateS2I);
     PSAV_BGN._set_uFunc(_updateS2I);
     PSAV_END._set_uFunc(_updateS2I);
     L_1SNZ_DAY._set_uFunc(_updateS2I);
@@ -254,7 +261,7 @@ void SpaNetInterface::initialise() {
     //Outlet_Pump2._set_uFunc(_updateS2I);
     //Outlet_Pump4._set_uFunc(_updateS2I);
     //Outlet_Pump5._set_uFunc(_updateS2I);
-    //Outlet_Blower._set_uFunc(_updateS2I);
+    Outlet_Blower._set_uFunc(_updateS2I);
     //RE
     HP_Present._set_uFunc(_updateS2I);
     //HP_FlowSwitch._set_uFunc(_updateS2I);
@@ -290,9 +297,23 @@ void SpaNetInterface::initialise() {
     //HP_Compressor._set_uFunc(_updateS2I);
     //HP_Pump_State._set_uFunc(_updateS2I);
     //HP_Status._set_uFunc(_updateS2I);
+
+    #pragma region RG
+    Pump1InstallState._set_uFunc(_updateS2S);
+    Pump2InstallState._set_uFunc(_updateS2S);
+    Pump3InstallState._set_uFunc(_updateS2S);
+    Pump4InstallState._set_uFunc(_updateS2S);
+    Pump1OkToRun._set_uFunc(_updateS2B);
+    Pump2OkToRun._set_uFunc(_updateS2B);
+    Pump3OkToRun._set_uFunc(_updateS2B);
+    Pump4OkToRun._set_uFunc(_updateS2B);
+    LockMode._set_uFunc(_updateS2I);
+
+#pragma endregion
 }
 
 void SpaNetInterface::updateMeasures() {
+    #pragma region R2
     MainsCurrent.updateValue(statusResponseRaw[2]);
     MainsVoltage.updateValue(statusResponseRaw[3]);
     CaseTemperature.updateValue(statusResponseRaw[4]);
@@ -314,6 +335,7 @@ void SpaNetInterface::updateMeasures() {
     Relay7.updateValue(statusResponseRaw[28]);
     Relay8.updateValue(statusResponseRaw[29]);
     Relay9.updateValue(statusResponseRaw[30]);
+    #pragma endregion
     CLMT.updateValue(statusResponseRaw[34]);
     PHSE.updateValue(statusResponseRaw[35]);
     LLM1.updateValue(statusResponseRaw[36]);
@@ -364,19 +386,26 @@ void SpaNetInterface::updateMeasures() {
     Vari_Speed.updateValue(statusResponseRaw[86]);
     Vari_Percent.updateValue(statusResponseRaw[87]);
     Vari_Mode.updateValue(statusResponseRaw[85]);
+    
+   #pragma region R5
+    //R5
     // Unknown encoding - TouchPad2.updateValue();
     // Unknown encoding - TouchPad1.updateValue();
-    RB_TP_Pump1.updateValue(statusResponseRaw[97]);
-    RB_TP_Pump2.updateValue(statusResponseRaw[98]);
-    RB_TP_Pump3.updateValue(statusResponseRaw[99]);
-    RB_TP_Pump4.updateValue(statusResponseRaw[100]);
-    RB_TP_Blower.updateValue(statusResponseRaw[101]);
-    RB_TP_Light.updateValue(statusResponseRaw[102]);
-    RB_TP_Auto.updateValue(statusResponseRaw[103]);
+    RB_TP_Pump1.updateValue(statusResponseRaw[110]);
+    RB_TP_Pump2.updateValue(statusResponseRaw[111]);
+    RB_TP_Pump3.updateValue(statusResponseRaw[112]);
+    RB_TP_Pump4.updateValue(statusResponseRaw[113]);
+    RB_TP_Pump4.updateValue(statusResponseRaw[114]);
+    //RB_TP_Blower.updateValue(statusResponseRaw[101]);
+    //RB_TP_Light.updateValue(statusResponseRaw[102]);
+    RB_TP_Auto.updateValue(statusResponseRaw[105]);
     RB_TP_Heater.updateValue(statusResponseRaw[104]);
-    RB_TP_Ozone.updateValue(statusResponseRaw[105]);
-    RB_TP_Sleep.updateValue(statusResponseRaw[106]);
+    RB_TP_Ozone.updateValue(statusResponseRaw[103]);
+    RB_TP_Sleep.updateValue(statusResponseRaw[102]);
     WTMP.updateValue(statusResponseRaw[107]);
+    CleanCycle.updateValue(statusResponseRaw[108]);
+    #pragma endregion
+
     //R6
     VARIValue.updateValue(statusResponseRaw[121]);
     LBRTValue.updateValue(statusResponseRaw[122]);
@@ -482,7 +511,7 @@ void SpaNetInterface::updateMeasures() {
     //Outlet_Pump2.updateValue(statusResponseRaw[]);
     //Outlet_Pump4.updateValue(statusResponseRaw[]);
     //Outlet_Pump5.updateValue(statusResponseRaw[]);
-    //Outlet_Blower.updateValue(statusResponseRaw[]);
+    Outlet_Blower.updateValue(statusResponseRaw[235]);
     //RE
     HP_Present.updateValue(statusResponseRaw[242]);
     //HP_FlowSwitch.updateValue(statusResponseRaw[]);
@@ -518,5 +547,20 @@ void SpaNetInterface::updateMeasures() {
     //HP_Compressor.updateValue(statusResponseRaw[]);
     //HP_Pump_State.updateValue(statusResponseRaw[]);
     //HP_Status.updateValue(statusResponseRaw[]);
+
+    #pragma region RG
+    Pump1InstallState.updateValue(statusResponseRaw[280]);
+    Pump2InstallState.updateValue(statusResponseRaw[281]);
+    Pump3InstallState.updateValue(statusResponseRaw[282]);
+    Pump4InstallState.updateValue(statusResponseRaw[283]);
+    Pump5InstallState.updateValue(statusResponseRaw[284]);
+    Pump1OkToRun.updateValue(statusResponseRaw[274]);
+    Pump2OkToRun.updateValue(statusResponseRaw[275]);
+    Pump3OkToRun.updateValue(statusResponseRaw[276]);
+    Pump4OkToRun.updateValue(statusResponseRaw[277]);
+    Pump5OkToRun.updateValue(statusResponseRaw[278]);
+    LockMode.updateValue(statusResponseRaw[285]);
+
+#pragma endregion
 
 };
