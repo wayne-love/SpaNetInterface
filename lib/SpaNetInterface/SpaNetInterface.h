@@ -40,9 +40,19 @@ class SpaNetInterface {
                 T _value;
                 T (*_uFunc)(String);
 
+
             public:
                 T getValue() { return _value; }
-                void updateValue(String s) { _value = _uFunc(s); }
+                void (*callBack)(){};
+                
+                void _updateValue(String s) {
+                    T newValue = _uFunc(s);
+                    bool changed = (_value != newValue);
+                    _value = _uFunc(s);
+                    if (changed && callBack) {
+                        callBack;
+                    }
+                }
                 void _set_uFunc(T (*func)(String)) { _uFunc = func;  }
 
         };
