@@ -44,11 +44,11 @@ class SpaNetInterface {
             public:
                 T getValue() { return _value; }
                 void (*callBack)(){};
-                
+
                 void _updateValue(String s) {
                     T newValue = _uFunc(s);
-                    bool changed = (_value != newValue);
                     _value = _uFunc(s);
+                    bool changed = (_value != newValue);
                     if (changed && callBack) {
                         callBack;
                     }
