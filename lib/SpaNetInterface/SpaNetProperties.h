@@ -951,6 +951,5 @@ class SpaNetProperties {
         int getLLM3() { return LLM3.getValue(); }
         void setLLM3Callback(void (*callback)(int)) { LLM3.setCallback(callback); }
 
-
 };
 #endif
