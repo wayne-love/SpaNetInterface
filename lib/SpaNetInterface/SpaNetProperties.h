@@ -1009,5 +1009,80 @@ public:
 
     int getHCON() { return HCON.getValue(); }
     void setHCONCallback(void (*callback)(int)) { HCON.setCallback(callback); }
+
+    String getMode() { return Mode.getValue(); }
+    void setModeCallback(void (*callback)(String)) { Mode.setCallback(callback); }
+
+    int getSer1_Timer() { return Ser1_Timer.getValue(); }
+    void setSer1_TimerCallback(void (*callback)(int)) { Ser1_Timer.setCallback(callback); }
+
+    int getSer2_Timer() { return Ser2_Timer.getValue(); }
+    void setSer2_TimerCallback(void (*callback)(int)) { Ser2_Timer.setCallback(callback); }
+
+    int getSer3_Timer() { return Ser3_Timer.getValue(); }
+    void setSer3_TimerCallback(void (*callback)(int)) { Ser3_Timer.setCallback(callback); }
+
+    int getHeatMode() { return HeatMode.getValue(); }
+    void setHeatModeCallback(void (*callback)(int)) { HeatMode.setCallback(callback); }
+
+    int getPumpIdleTimer() { return PumpIdleTimer.getValue(); }
+    void setPumpIdleTimerCallback(void (*callback)(int)) { PumpIdleTimer.setCallback(callback); }
+
+    int getPumpRunTimer() { return PumpRunTimer.getValue(); }
+    void setPumpRunTimerCallback(void (*callback)(int)) { PumpRunTimer.setCallback(callback); }
+
+    float getAdtPoolHys() { return AdtPoolHys.getValue(); }
+    void setAdtPoolHysCallback(void (*callback)(float)) { AdtPoolHys.setCallback(callback); }
+
+    float getAdtHeaterHys() { return AdtHeaterHys.getValue(); }
+    void setAdtHeaterHysCallback(void (*callback)(float)) { AdtHeaterHys.setCallback(callback); }
+
+    float getPower() { return Power.getValue(); }
+    void setPowerCallback(void (*callback)(float)) { Power.setCallback(callback); }
+
+    float getPower_kWh() { return Power_kWh.getValue(); }
+    void setPower_kWhCallback(void (*callback)(float)) { Power_kWh.setCallback(callback); }
+
+    float getPower_Today() { return Power_Today.getValue(); }
+    void setPower_TodayCallback(void (*callback)(float)) { Power_Today.setCallback(callback); }
+
+    float getPower_Yesterday() { return Power_Yesterday.getValue(); }
+    void setPower_YesterdayCallback(void (*callback)(float)) { Power_Yesterday.setCallback(callback); }
+
+    int getThermalCutOut() { return ThermalCutOut.getValue(); }
+    void setThermalCutOutCallback(void (*callback)(int)) { ThermalCutOut.setCallback(callback); }
+
+    int getTest_D1() { return Test_D1.getValue(); }
+    void setTest_D1Callback(void (*callback)(int)) { Test_D1.setCallback(callback); }
+
+    int getTest_D2() { return Test_D2.getValue(); }
+    void setTest_D2Callback(void (*callback)(int)) { Test_D2.setCallback(callback); }
+
+    int getTest_D3() { return Test_D3.getValue(); }
+    void setTest_D3Callback(void (*callback)(int)) { Test_D3.setCallback(callback); }
+
+    float getElementHeatSourceOffset() { return ElementHeatSourceOffset.getValue(); }
+    void setElementHeatSourceOffsetCallback(void (*callback)(float)) { ElementHeatSourceOffset.setCallback(callback); }
+
+    int getFrequency() { return Frequency.getValue(); }
+    void setFrequencyCallback(void (*callback)(int)) { Frequency.setCallback(callback); }
+
+    float getHPHeatSourceOffset_Heat() { return HPHeatSourceOffset_Heat.getValue(); }
+    void setHPHeatSourceOffset_HeatCallback(void (*callback)(float)) { HPHeatSourceOffset_Heat.setCallback(callback); }
+
+    float getHPHeatSourceOffset_Cool() { return HPHeatSourceOffset_Cool.getValue(); }
+    void setHPHeatSourceOffset_CoolCallback(void (*callback)(float)) { HPHeatSourceOffset_Cool.setCallback(callback); }
+
+    int getHeatSourceOffTime() { return HeatSourceOffTime.getValue(); }
+    void setHeatSourceOffTimeCallback(void (*callback)(int)) { HeatSourceOffTime.setCallback(callback); }
+
+    int getVari_Speed() { return Vari_Speed.getValue(); }
+    void setVari_SpeedCallback(void (*callback)(int)) { Vari_Speed.setCallback(callback); }
+
+    int getVari_Percent() { return Vari_Percent.getValue(); }
+    void setVari_PercentCallback(void (*callback)(int)) { Vari_Percent.setCallback(callback); }
+
+    int getVari_Mode() { return Vari_Mode.getValue(); }
+    void setVari_ModeCallback(void (*callback)(int)) { Vari_Mode.setCallback(callback); }
 };
 #endif
