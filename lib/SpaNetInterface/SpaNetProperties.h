@@ -1084,5 +1084,48 @@ public:
 
     int getVari_Mode() { return Vari_Mode.getValue(); }
     void setVari_ModeCallback(void (*callback)(int)) { Vari_Mode.setCallback(callback); }
+
+    int getRB_TP_Pump1() { return RB_TP_Pump1.getValue(); }
+    void setRB_TP_Pump1Callback(void (*callback)(int)) { RB_TP_Pump1.setCallback(callback); }
+
+    int getRB_TP_Pump2() { return RB_TP_Pump2.getValue(); }
+    void setRB_TP_Pump2Callback(void (*callback)(int)) { RB_TP_Pump2.setCallback(callback); }
+
+    int getRB_TP_Pump3() { return RB_TP_Pump3.getValue(); }
+    void setRB_TP_Pump3Callback(void (*callback)(int)) { RB_TP_Pump3.setCallback(callback); }
+
+    int getRB_TP_Pump4() { return RB_TP_Pump4.getValue(); }
+    void setRB_TP_Pump4Callback(void (*callback)(int)) { RB_TP_Pump4.setCallback(callback); }
+
+    int getRB_TP_Pump5() { return RB_TP_Pump5.getValue(); }
+    void setRB_TP_Pump5Callback(void (*callback)(int)) { RB_TP_Pump5.setCallback(callback); }
+
+    int getRB_TP_Blower() { return RB_TP_Blower.getValue(); }
+    void setRB_TP_BlowerCallback(void (*callback)(int)) { RB_TP_Blower.setCallback(callback); }
+
+    int getRB_TP_Light() { return RB_TP_Light.getValue(); }
+    void setRB_TP_LightCallback(void (*callback)(int)) { RB_TP_Light.setCallback(callback); }
+
+    bool getRB_TP_Auto() { return RB_TP_Auto.getValue(); }
+    void setRB_TP_AutoCallback(void (*callback)(bool)) { RB_TP_Auto.setCallback(callback); }
+
+    bool getRB_TP_Heater() { return RB_TP_Heater.getValue(); }
+    void setRB_TP_HeaterCallback(void (*callback)(bool)) { RB_TP_Heater.setCallback(callback); }
+
+    bool getRB_TP_Ozone() { return RB_TP_Ozone.getValue(); }
+    void setRB_TP_OzoneCallback(void (*callback)(bool)) { RB_TP_Ozone.setCallback(callback); }
+
+    bool getRB_TP_Sleep() { return RB_TP_Sleep.getValue(); }
+    void setRB_TP_SleepCallback(void (*callback)(bool)) { RB_TP_Sleep.setCallback(callback); }
+
+    float getWTMP() { return WTMP.getValue(); }
+    void setWTMPCallback(void (*callback)(float)) { WTMP.setCallback(callback); }
+
+    bool getCleanCycle() { return CleanCycle.getValue(); }
+    void setCleanCycleCallback(void (*callback)(bool)) { CleanCycle.setCallback(callback); }
+
+
+
+    
 };
 #endif
