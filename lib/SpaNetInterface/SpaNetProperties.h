@@ -1124,8 +1124,86 @@ public:
     bool getCleanCycle() { return CleanCycle.getValue(); }
     void setCleanCycleCallback(void (*callback)(bool)) { CleanCycle.setCallback(callback); }
 
+    int getVARIValue() { return VARIValue.getValue(); }
+    void setVARIValueCallback(void (*callback)(int)) { VARIValue.setCallback(callback); }
 
+    int getLBRTValue() { return LBRTValue.getValue(); }
+    void setLBRTValueCallback(void (*callback)(int)) { LBRTValue.setCallback(callback); }
 
-    
+    int getCurrClr() { return CurrClr.getValue(); }
+    void setCurrClrCallback(void (*callback)(int)) { CurrClr.setCallback(callback); }
+
+    int getColorMode() { return ColorMode.getValue(); }
+    void setColorModeCallback(void (*callback)(int)) { ColorMode.setCallback(callback); }
+
+    int getLSPDValue() { return LSPDValue.getValue(); }
+    void setLSPDValueCallback(void (*callback)(int)) { LSPDValue.setCallback(callback); }
+
+    int getFiltSetHrs() { return FiltSetHrs.getValue(); }
+    void setFiltSetHrsCallback(void (*callback)(int)) { FiltSetHrs.setCallback(callback); }
+
+    int getFiltBlockHrs() { return FiltBlockHrs.getValue(); }
+    void setFiltBlockHrsCallback(void (*callback)(int)) { FiltBlockHrs.setCallback(callback); }
+
+    float getSTMP() { return STMP.getValue(); }
+    void setSTMPCallback(void (*callback)(float)) { STMP.setCallback(callback); }
+
+    int getL_24HOURS() { return L_24HOURS.getValue(); }
+    void setL_24HOURSCallback(void (*callback)(int)) { L_24HOURS.setCallback(callback); }
+
+    int getPSAV_LVL() { return PSAV_LVL.getValue(); }
+    void setPSAV_LVLCallback(void (*callback)(int)) { PSAV_LVL.setCallback(callback); }
+
+    int getPSAV_BGN() { return PSAV_BGN.getValue(); }
+    void setPSAV_BGNCallback(void (*callback)(int)) { PSAV_BGN.setCallback(callback); }
+
+    int getPSAV_END() { return PSAV_END.getValue(); }
+    void setPSAV_ENDCallback(void (*callback)(int)) { PSAV_END.setCallback(callback); }
+
+    int getL_1SNZ_DAY() { return L_1SNZ_DAY.getValue(); }
+    void setL_1SNZ_DAYCallback(void (*callback)(int)) { L_1SNZ_DAY.setCallback(callback); }
+
+    int getL_2SNZ_DAY() { return L_2SNZ_DAY.getValue(); }
+    void setL_2SNZ_DAYCallback(void (*callback)(int)) { L_2SNZ_DAY.setCallback(callback); }
+
+    int getL_1SNZ_BGN() { return L_1SNZ_BGN.getValue(); }
+    void setL_1SNZ_BGNCallback(void (*callback)(int)) { L_1SNZ_BGN.setCallback(callback); }
+
+    int getL_2SNZ_BGN() { return L_2SNZ_BGN.getValue(); }
+    void setL_2SNZ_BGNCallback(void (*callback)(int)) { L_2SNZ_BGN.setCallback(callback); }
+
+    int getL_1SNZ_END() { return L_1SNZ_END.getValue(); }
+    void setL_1SNZ_ENDCallback(void (*callback)(int)) { L_1SNZ_END.setCallback(callback); }
+
+    int getL_2SNZ_END() { return L_2SNZ_END.getValue(); }
+    void setL_2SNZ_ENDCallback(void (*callback)(int)) { L_2SNZ_END.setCallback(callback); }
+
+    int getDefaultScrn() { return DefaultScrn.getValue(); }
+    void setDefaultScrnCallback(void (*callback)(int)) { DefaultScrn.setCallback(callback); }
+
+    int getTOUT() { return TOUT.getValue(); }
+    void setTOUTCallback(void (*callback)(int)) { TOUT.setCallback(callback); }
+
+    bool getVPMP() { return VPMP.getValue(); }
+    void setVPMPCallback(void (*callback)(bool)) { VPMP.setCallback(callback); }
+
+    bool getHIFI() { return HIFI.getValue(); }
+    void setHIFICallback(void (*callback)(bool)) { HIFI.setCallback(callback); }
+
+    int getBRND() { return BRND.getValue(); }
+    void setBRNDCallback(void (*callback)(int)) { BRND.setCallback(callback); }
+
+    int getPRME() { return PRME.getValue(); }
+    void setPRMECallback(void (*callback)(int)) { PRME.setCallback(callback); }
+
+    int getELMT() { return ELMT.getValue(); }
+    void setELMTCallback(void (*callback)(int)) { ELMT.setCallback(callback); }
+
+    int getTYPE() { return TYPE.getValue(); }
+    void setTYPECallback(void (*callback)(int)) { TYPE.setCallback(callback); }
+
+    int getGAS() { return GAS.getValue(); }
+    void setGASCallback(void (*callback)(int)) { GAS.setCallback(callback); }
+
 };
 #endif
