@@ -368,8 +368,11 @@ Property<bool> HV_2;
     /// If true allows variable power to be fed to the heating element.
     /// See SV-Series-OEM-Install-Manual.pdf page 19.
     Property<bool> VELE;
+
+    /// TODO #2 - Not Implemented
     /// @brief Date of comissioning
-    Property<time_t> ComissionDate;
+    /// Property<time_t> ComissionDate;
+
     /// @brief Highest voltage ever recorded (V)
     Property<int> V_Max;
     /// @brief Lowest voltage ever recorded (V)
@@ -396,7 +399,7 @@ Property<bool> HV_2;
     /// @brief HUSE
     ///
     /// 1 = Off
-    Property<boolean> HUSE;
+    Property<bool> HUSE;
     /// @brief Heat pump active whilst spa is in use
     ///
     /// If false then when spa is in use then heat pump will not run to reduce noise levels
@@ -1204,6 +1207,82 @@ public:
 
     int getGAS() { return GAS.getValue(); }
     void setGASCallback(void (*callback)(int)) { GAS.setCallback(callback); }
+
+    int getWCLNTime() { return WCLNTime.getValue(); }
+    void setWCLNTimeCallback(void (*callback)(int)) { WCLNTime.setCallback(callback); }
+
+    bool getTemperatureUnits() { return TemperatureUnits.getValue(); }
+    void setTemperatureUnitsCallback(void (*callback)(bool)) { TemperatureUnits.setCallback(callback); }
+
+    bool getOzoneOff() { return OzoneOff.getValue(); }
+    void setOzoneOffCallback(void (*callback)(bool)) { OzoneOff.setCallback(callback); }
+
+    bool getCirc24() { return Circ24.getValue(); }
+    void setCirc24Callback(void (*callback)(bool)) { Circ24.setCallback(callback); }
+
+    bool getCJET() { return CJET.getValue(); }
+    void setCJETCallback(void (*callback)(bool)) { CJET.setCallback(callback); }
+
+    bool getVELE() { return VELE.getValue(); }
+    void setVELECallback(void (*callback)(bool)) { VELE.setCallback(callback); }
+
+    int getV_Max() { return V_Max.getValue(); }
+    void setV_MaxCallback(void (*callback)(int)) { V_Max.setCallback(callback); }
+
+    int getV_Min() { return V_Min.getValue(); }
+    void setV_MinCallback(void (*callback)(int)) { V_Min.setCallback(callback); }
+
+    int getV_Max_24() { return V_Max_24.getValue(); }
+    void setV_Max_24Callback(void (*callback)(int)) { V_Max_24.setCallback(callback); }
+
+    int getV_Min_24() { return V_Min_24.getValue(); }
+    void setV_Min_24Callback(void (*callback)(int)) { V_Min_24.setCallback(callback); }
+
+    int getCurrentZero() { return CurrentZero.getValue(); }
+    void setCurrentZeroCallback(void (*callback)(int)) { CurrentZero.setCallback(callback); }
+
+    float getCurrentAdjust() { return CurrentAdjust.getValue(); }
+    void setCurrentAdjustCallback(void (*callback)(float)) { CurrentAdjust.setCallback(callback); }
+
+    float getVoltageAdjust() { return VoltageAdjust.getValue(); }
+    void setVoltageAdjustCallback(void (*callback)(float)) { VoltageAdjust.setCallback(callback); }
+
+    int getSer1() { return Ser1.getValue(); }
+    void setSer1Callback(void (*callback)(int)) { Ser1.setCallback(callback); }
+
+    int getSer2() { return Ser2.getValue(); }
+    void setSer2Callback(void (*callback)(int)) { Ser2.setCallback(callback); }
+
+    int getSer3() { return Ser3.getValue(); }
+    void setSer3Callback(void (*callback)(int)) { Ser3.setCallback(callback); }
+
+    int getVMAX() { return VMAX.getValue(); }
+    void setVMAXCallback(void (*callback)(int)) { VMAX.setCallback(callback); }
+
+    float getAHYS() { return AHYS.getValue(); }
+    void setAHYSCallback(void (*callback)(float)) { AHYS.setCallback(callback); }   
+
+    bool getHUSE() { return HUSE.getValue(); }
+    void setHUSECallback(void (*callback)(bool)) { HUSE.setCallback(callback); }
+
+    bool getHELE() { return HELE.getValue(); }
+    void setHELECallback(void (*callback)(bool)) { HELE.setCallback(callback); }
+
+    int getHPMP() { return HPMP.getValue(); }
+    void setHPMPCallback(void (*callback)(int)) { HPMP.setCallback(callback); }
+
+    int getPMIN() { return PMIN.getValue(); }
+    void setPMINCallback(void (*callback)(int)) { PMIN.setCallback(callback); }
+
+    int getPFLT() { return PFLT.getValue(); }
+    void setPFLTCallback(void (*callback)(int)) { PFLT.setCallback(callback); }
+
+    int getPHTR() { return PHTR.getValue(); }
+    void setPHTRCallback(void (*callback)(int)) { PHTR.setCallback(callback); }
+
+    int getPMAX() { return PMAX.getValue(); }
+    void setPMAXCallback(void (*callback)(int)) { PMAX.setCallback(callback); }
+
 
 };
 #endif
