@@ -1382,5 +1382,69 @@ public:
     float getF3_ST() { return F3_ST.getValue(); }
     void setF3_STCallback(void (*callback)(float)) { F3_ST.setCallback(callback); }
 
+
+int getOutlet_Blower() { return Outlet_Blower.getValue(); }
+void setOutlet_BlowerCallback(void (*callback)(int)) { Outlet_Blower.setCallback(callback); }
+
+int getHP_Present() { return HP_Present.getValue(); }
+void setHP_PresentCallback(void (*callback)(int)) { HP_Present.setCallback(callback); }
+
+int getHP_Ambient() { return HP_Ambient.getValue(); }
+void setHP_AmbientCallback(void (*callback)(int)) { HP_Ambient.setCallback(callback); }
+
+int getHP_Condensor() { return HP_Condensor.getValue(); }
+void setHP_CondensorCallback(void (*callback)(int)) { HP_Condensor.setCallback(callback); }
+
+bool getHP_Compressor_State() { return HP_Compressor_State.getValue(); }
+void setHP_Compressor_StateCallback(void (*callback)(bool)) { HP_Compressor_State.setCallback(callback); }
+
+bool getHP_Fan_State() { return HP_Fan_State.getValue(); }
+void setHP_Fan_StateCallback(void (*callback)(bool)) { HP_Fan_State.setCallback(callback); }
+
+bool getHP_4W_Valve() { return HP_4W_Valve.getValue(); }
+void setHP_4W_ValveCallback(void (*callback)(bool)) { HP_4W_Valve.setCallback(callback); }
+
+bool getHP_Heater_State() { return HP_Heater_State.getValue(); }
+void setHP_Heater_StateCallback(void (*callback)(bool)) { HP_Heater_State.setCallback(callback); }
+
+int getHP_Mode() { return HP_Mode.getValue(); }
+void setHP_ModeCallback(void (*callback)(int)) { HP_Mode.setCallback(callback); }
+
+int getHP_Defrost_Timer() { return HP_Defrost_Timer.getValue(); }
+void setHP_Defrost_TimerCallback(void (*callback)(int)) { HP_Defrost_Timer.setCallback(callback); }
+
+int getHP_Comp_Run_Timer() { return HP_Comp_Run_Timer.getValue(); }
+void setHP_Comp_Run_TimerCallback(void (*callback)(int)) { HP_Comp_Run_Timer.setCallback(callback); }
+
+int getHP_Low_Temp_Timer() { return HP_Low_Temp_Timer.getValue(); }
+void setHP_Low_Temp_TimerCallback(void (*callback)(int)) { HP_Low_Temp_Timer.setCallback(callback); }
+
+int getHP_Heat_Accum_Timer() { return HP_Heat_Accum_Timer.getValue(); }
+void setHP_Heat_Accum_TimerCallback(void (*callback)(int)) { HP_Heat_Accum_Timer.setCallback(callback); }
+
+int getHP_Warning() { return HP_Warning.getValue(); }
+void setHP_WarningCallback(void (*callback)(int)) { HP_Warning.setCallback(callback); }
+
+int getHP_FrezTmr() { return HP_FrezTmr.getValue(); }
+void setHP_FrezTmrCallback(void (*callback)(int)) { HP_FrezTmr.setCallback(callback); }
+
+int getDBGN() { return DBGN.getValue(); }
+void setDBGNCallback(void (*callback)(int)) { DBGN.setCallback(callback); }
+
+int getDEND() { return DEND.getValue(); }
+void setDENDCallback(void (*callback)(int)) { DEND.setCallback(callback); }
+
+int getDCMP() { return DCMP.getValue(); }
+void setDCMPCallback(void (*callback)(int)) { DCMP.setCallback(callback); }
+
+int getDMAX() { return DMAX.getValue(); }
+void setDMAXCallback(void (*callback)(int)) { DMAX.setCallback(callback); }
+
+int getDELE() { return DELE.getValue(); }
+void setDELECallback(void (*callback)(int)) { DELE.setCallback(callback); }
+
+int getDPMP() { return DPMP.getValue(); }
+void setDPMPCallback(void (*callback)(int)) { DPMP.setCallback(callback); }
+
 };
 #endif
