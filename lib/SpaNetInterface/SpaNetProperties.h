@@ -1283,6 +1283,104 @@ public:
     int getPMAX() { return PMAX.getValue(); }
     void setPMAXCallback(void (*callback)(int)) { PMAX.setCallback(callback); }
 
+    float getF1_HR() { return F1_HR.getValue(); }
+    void setF1_HRCallback(void (*callback)(float)) { F1_HR.setCallback(callback); }  
+
+    int getF1_Time() { return F1_Time.getValue(); }
+    void setF1_TimeCallback(void (*callback)(int)) { F1_Time.setCallback(callback); }
+
+    int getF1_ER() { return F1_ER.getValue(); }
+    void setF1_ERCallback(void (*callback)(int)) { F1_ER.setCallback(callback); }
+
+    float getF1_I() { return F1_I.getValue(); }
+    void setF1_ICallback(void (*callback)(float)) { F1_I.setCallback(callback); }
+
+    int getF1_V() { return F1_V.getValue(); }
+    void setF1_VCallback(void (*callback)(int)) { F1_V.setCallback(callback); }
+
+    float getF1_PT() { return F1_PT.getValue(); }
+    void setF1_PTCallback(void (*callback)(float)) { F1_PT.setCallback(callback); }
+
+    float getF1_HT() { return F1_HT.getValue(); }
+    void setF1_HTCallback(void (*callback)(float)) { F1_HT.setCallback(callback); }
+
+    float getF1_CT() { return F1_CT.getValue(); }
+    void setF1_CTCallback(void (*callback)(float)) { F1_CT.setCallback(callback); }
+
+    int getF1_PU() { return F1_PU.getValue(); }
+    void setF1_PUCallback(void (*callback)(int)) { F1_PU.setCallback(callback); }
+
+    bool getF1_VE() { return F1_VE.getValue(); }
+    void setF1_VECallback(void (*callback)(bool)) { F1_VE.setCallback(callback); }
+
+    float getF1_ST() { return F1_ST.getValue(); }
+    void setF1_STCallback(void (*callback)(float)) { F1_ST.setCallback(callback); }
+
+    float getF2_HR() { return F2_HR.getValue(); }
+    void setF2_HRCallback(void (*callback)(float)) { F2_HR.setCallback(callback); }  
+
+    int getF2_Time() { return F2_Time.getValue(); }
+    void setF2_TimeCallback(void (*callback)(int)) { F2_Time.setCallback(callback); }
+
+    int getF2_ER() { return F2_ER.getValue(); }
+    void setF2_ERCallback(void (*callback)(int)) { F2_ER.setCallback(callback); }
+
+    float getF2_I() { return F2_I.getValue(); }
+    void setF2_ICallback(void (*callback)(float)) { F2_I.setCallback(callback); }
+
+    int getF2_V() { return F2_V.getValue(); }
+    void setF2_VCallback(void (*callback)(int)) { F2_V.setCallback(callback); }
+
+    float getF2_PT() { return F2_PT.getValue(); }
+    void setF2_PTCallback(void (*callback)(float)) { F2_PT.setCallback(callback); }
+
+    float getF2_HT() { return F2_HT.getValue(); }
+    void setF2_HTCallback(void (*callback)(float)) { F2_HT.setCallback(callback); }
+
+    float getF2_CT() { return F2_CT.getValue(); }
+    void setF2_CTCallback(void (*callback)(float)) { F2_CT.setCallback(callback); }
+
+    int getF2_PU() { return F2_PU.getValue(); }
+    void setF2_PUCallback(void (*callback)(int)) { F2_PU.setCallback(callback); }
+
+    bool getF2_VE() { return F2_VE.getValue(); }
+    void setF2_VECallback(void (*callback)(bool)) { F2_VE.setCallback(callback); }
+
+    float getF2_ST() { return F2_ST.getValue(); }
+    void setF2_STCallback(void (*callback)(float)) { F2_ST.setCallback(callback); }
+
+    float getF3_HR() { return F3_HR.getValue(); }
+    void setF3_HRCallback(void (*callback)(float)) { F3_HR.setCallback(callback); }  
+
+    int getF3_Time() { return F3_Time.getValue(); }
+    void setF3_TimeCallback(void (*callback)(int)) { F3_Time.setCallback(callback); }
+
+    int getF3_ER() { return F3_ER.getValue(); }
+    void setF3_ERCallback(void (*callback)(int)) { F3_ER.setCallback(callback); }
+
+    float getF3_I() { return F3_I.getValue(); }
+    void setF3_ICallback(void (*callback)(float)) { F3_I.setCallback(callback); }
+
+    int getF3_V() { return F3_V.getValue(); }
+    void setF3_VCallback(void (*callback)(int)) { F3_V.setCallback(callback); }
+
+    float getF3_PT() { return F3_PT.getValue(); }
+    void setF3_PTCallback(void (*callback)(float)) { F3_PT.setCallback(callback); }
+
+    float getF3_HT() { return F3_HT.getValue(); }
+    void setF3_HTCallback(void (*callback)(float)) { F3_HT.setCallback(callback); }
+
+    float getF3_CT() { return F3_CT.getValue(); }
+    void setF3_CTCallback(void (*callback)(float)) { F3_CT.setCallback(callback); }
+
+    int getF3_PU() { return F3_PU.getValue(); }
+    void setF3_PUCallback(void (*callback)(int)) { F3_PU.setCallback(callback); }
+
+    bool getF3_VE() { return F3_VE.getValue(); }
+    void setF3_VECallback(void (*callback)(bool)) { F3_VE.setCallback(callback); }
+
+    float getF3_ST() { return F3_ST.getValue(); }
+    void setF3_STCallback(void (*callback)(float)) { F3_ST.setCallback(callback); }
 
 };
 #endif
