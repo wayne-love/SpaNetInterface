@@ -14,25 +14,6 @@ SpaNetInterface::SpaNetInterface() : port(Serial2) {
 
 SpaNetInterface::~SpaNetInterface() {}
 
-float SpaNetInterface::_updateS2Idiv10(String s) {
-    return s.toFloat()/10;
-}
-
-float SpaNetInterface::_updateS2Idiv100(String s) {
-    return s.toFloat()/100;
-}
-
-int SpaNetInterface::_updateS2I(String s) {
-    return s.toInt();
-}
-
-bool SpaNetInterface::_updateS2B(String s){
-    return s.equals("1");
-}
-
-String SpaNetInterface::_updateS2S(String s){
-    return s;
-}
 
 String SpaNetInterface::_sendCommand(String cmd) {
     port.print('\n');
@@ -43,13 +24,10 @@ String SpaNetInterface::_sendCommand(String cmd) {
     return result;
 }
 
-bool SpaNetInterface::_setSTMP(float temp){
-    port.print('\n');
-    delay(100);
-    port.printf("W40:%i\n", int(temp * 10));
-    String result = port.readString();
+bool SpaNetInterface::setSTMP(float temp){
+    String result = _sendCommand("W40:" + String(int(temp * 10)));
     if (String(int(temp*10)).compareTo(result)) {
-        STMP(result);
+        update_STMP(result);
         return true;
     }
     return false;

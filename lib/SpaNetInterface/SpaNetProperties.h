@@ -36,6 +36,7 @@ public:
 /// @brief represents the properties of the spa.
 class SpaNetProperties
 {
+    
 private:
 #pragma region R2
     /// @brief Mains current draw (A)
