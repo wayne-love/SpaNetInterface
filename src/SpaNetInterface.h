@@ -24,9 +24,11 @@ RemoteDebug Debug;
 class SpaNetInterface : public SpaNetProperties {
     private:
 
-        /// @brief Each field of the RF cmd response as seperate elements.  NOTE: Not Syntax checked!
+        /// @brief Each field of the RF cmd response as seperate elements.
         String statusResponseRaw[290];
-        bool validStatusResponse;
+
+        /// @brief Does the status response array contain valid information?
+        bool validStatusResponse = false;
         Stream &port;
 
         void initialise();
@@ -61,6 +63,9 @@ class SpaNetInterface : public SpaNetProperties {
         /// @brief To be called by loop function of main sketch.  Does regular updates, etc.
         void loop();
 
+        /// @brief Set the desired water temperature
+        /// @param temp Between 5 and 40 in 0.5 increments
+        /// @return Returns True if succesful
         bool setSTMP(float temp);
 };
 
