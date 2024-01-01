@@ -30,6 +30,7 @@ class SpaNetInterface : public SpaNetProperties {
         /// @brief Does the status response array contain valid information?
         bool validStatusResponse = false;
 
+        /// @brief Serial stream to interface to SpanNet hardware.
         Stream &port;
 
         /// @brief Read from serial interface, expect it to contain return from RF command
@@ -59,7 +60,8 @@ class SpaNetInterface : public SpaNetProperties {
 
     public:
         /// @brief Init SNI to read from stream p. This stream needs to be started and configured baud 38400/8N1.
-        /// unseful if you want to link this to a software COM port on a chip similar to a ESP8266
+        /// useful if you want to link this to a software COM port on a chip similar to a ESP8266.
+        /// Needs to be set to 38400/8/N/1
         /// @param p 
         SpaNetInterface(Stream &p);
 
