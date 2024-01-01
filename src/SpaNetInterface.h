@@ -29,17 +29,27 @@ class SpaNetInterface : public SpaNetProperties {
 
         /// @brief Does the status response array contain valid information?
         bool validStatusResponse = false;
+
         Stream &port;
 
         void initialise();
+
         /// @brief Read from serial interface, expect it to contain return from RF command
         /// @return true if successful read, false if there was a corrupted read
         bool readStatus();
+
         void updateMeasures();
 
-        /// @brief Sends command to SpaNet controller.
+        /// @brief Sends command to SpaNet controller.  Result must be read by some other method.
+        /// Used for the 'RF' command so that we can do a optomised read of the return array.
         /// @param cmd - cmd to be executed.
         void sendCommand(String cmd);
+
+        
+        /// @brief Sends a command to the SpanNet controller and returns the result string
+        /// @param cmd - cmd to be executed
+        /// @return String - result string
+        String sendCommandReturnResult(String cmd);
 
         /// @brief Updates the attributes by sending the RF command and parsing the result.
         void updateStatus();
@@ -47,7 +57,6 @@ class SpaNetInterface : public SpaNetProperties {
         /// @brief Stores millis time at which next update should occur
         unsigned long _nextUpdateDue = 0;
 
-        String _sendCommand(String cmd);
 
 
     public:

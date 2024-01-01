@@ -15,17 +15,24 @@ SpaNetInterface::SpaNetInterface() : port(Serial2) {
 SpaNetInterface::~SpaNetInterface() {}
 
 
-String SpaNetInterface::_sendCommand(String cmd) {
+String SpaNetInterface::sendCommandReturnResult(String cmd) {
     port.print('\n');
-    delay(50); // is this needed?
+    delay(50); // **TODO** is this needed?
     port.printf("%s\n", cmd);
     String result = port.readStringUntil('\n');
     port.read(); // get rid of the trailing LF char
     return result;
 }
 
+void SpaNetInterface::sendCommand(String cmd) {
+    port.printf("\n");
+    delay(50);
+    cmd = cmd + "\n";
+    port.printf(cmd.c_str());
+}
+
 bool SpaNetInterface::setSTMP(float temp){
-    String result = _sendCommand("W40:" + String(int(temp * 10)));
+    String result = sendCommandReturnResult("W40:" + String(int(temp * 10)));
     if (String(int(temp*10)).compareTo(result)) {
         update_STMP(result);
         return true;
@@ -67,12 +74,7 @@ bool SpaNetInterface::readStatus() {
     return true;
 }
 
-void SpaNetInterface::sendCommand(String cmd) {
-    port.printf("\n");
-    delay(100);
-    cmd = cmd + "\n";
-    port.printf(cmd.c_str());
-}
+
 
 void SpaNetInterface::updateStatus() {
     sendCommand("RF");
