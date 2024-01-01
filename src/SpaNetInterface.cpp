@@ -1,7 +1,6 @@
 #include "SpaNetInterface.h"
 
 SpaNetInterface::SpaNetInterface(Stream &p) : port(p) {
-    initialise();
 }
 
 SpaNetInterface::SpaNetInterface() : port(Serial2) {

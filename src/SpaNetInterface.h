@@ -32,8 +32,6 @@ class SpaNetInterface : public SpaNetProperties {
 
         Stream &port;
 
-        void initialise();
-
         /// @brief Read from serial interface, expect it to contain return from RF command
         /// @return true if successful read, false if there was a corrupted read
         bool readStatus();
@@ -61,6 +59,7 @@ class SpaNetInterface : public SpaNetProperties {
 
     public:
         /// @brief Init SNI to read from stream p. This stream needs to be started and configured baud 38400/8N1.
+        /// unseful if you want to link this to a software COM port on a chip similar to a ESP8266
         /// @param p 
         SpaNetInterface(Stream &p);
 
