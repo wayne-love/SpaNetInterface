@@ -8,7 +8,6 @@ SpaNetInterface::SpaNetInterface() : port(Serial2) {
     Serial2.setTxBufferSize(1024);  //required for unit testing
     Serial2.begin(38400, SERIAL_8N1, 16, 17);
     Serial2.setTimeout(250);
-    initialise();
 }
 
 SpaNetInterface::~SpaNetInterface() {}
@@ -69,8 +68,13 @@ bool SpaNetInterface::readStatus() {
         port.read();
     }
 
-    updateMeasures();
-    return true;
+    if (field == 289) {
+        updateMeasures();
+        return true;
+    } else {
+        return false;
+    }
+
 }
 
 
@@ -79,6 +83,8 @@ void SpaNetInterface::updateStatus() {
     sendCommand("RF");
     if (readStatus()) {
         _nextUpdateDue = millis() + UPDATEFREQUENCY;
+     } else {
+        _nextUpdateDue = millis() + FAILEDREADFREQUENCY;
      }
 }
 

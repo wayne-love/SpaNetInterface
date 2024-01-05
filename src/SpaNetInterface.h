@@ -15,6 +15,7 @@ RemoteDebug Debug;
 #endif
 
 #define UPDATEFREQUENCY 60000 //(ms) Frequency to poll controller when idle.
+#define FAILEDREADFREQUENCY 1000 //(ms) Frequency to retry on a failed read of the status registers.
 
 
 
