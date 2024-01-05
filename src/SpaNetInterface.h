@@ -57,6 +57,8 @@ class SpaNetInterface : public SpaNetProperties {
         /// @brief Stores millis time at which next update should occur
         unsigned long _nextUpdateDue = 0;
 
+        bool _initialised = false;
+
 
 
     public:
@@ -78,6 +80,10 @@ class SpaNetInterface : public SpaNetProperties {
         /// @param temp Between 5 and 40 in 0.5 increments
         /// @return Returns True if succesful
         bool setSTMP(float temp);
+
+        /// @brief Have we sucessfuly read the registers from the SpaNet controller.
+        /// @return 
+        bool isInitialised();
 };
 
 

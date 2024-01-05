@@ -77,12 +77,16 @@ bool SpaNetInterface::readStatus() {
 
 }
 
+bool SpaNetInterface::isInitialised() { 
+    return _initialised; 
+}
 
 
 void SpaNetInterface::updateStatus() {
     sendCommand("RF");
     if (readStatus()) {
         _nextUpdateDue = millis() + UPDATEFREQUENCY;
+        _initialised = true;
      } else {
         _nextUpdateDue = millis() + FAILEDREADFREQUENCY;
      }
